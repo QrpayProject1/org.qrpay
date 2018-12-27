@@ -76,6 +76,7 @@ class QRViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate 
                 view.addSubview(qrCodeFrameView)
                 view.bringSubviewToFront(qrCodeFrameView)
                 print("bişeylerer")
+                 print("bişeylerer")
             }
         } catch {
             //herhangi bir hata oluşursa , sadece hatayı yazdırın ve daha fazla devam etmeyin
