@@ -75,7 +75,7 @@ class QRViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate 
                 qrCodeFrameView.layer.borderWidth = 2
                 view.addSubview(qrCodeFrameView)
                 view.bringSubviewToFront(qrCodeFrameView)
-                
+                print("bişeyler")
             }
         } catch {
             //herhangi bir hata oluşursa , sadece hatayı yazdırın ve daha fazla devam etmeyin
