@@ -24,6 +24,7 @@ class TableViewController: UITableViewController {
         getData();
         
         self.tableView.tableFooterView=UIView();
+        
     }
     
     
@@ -52,15 +53,20 @@ class TableViewController: UITableViewController {
         UserDefaults.standard.set(ordercode, forKey: "ordercode")
         
         cell.SiparişDetay.tag=indexPath.row
-        cell.SiparişDetay.addTarget(self, action: #selector(Print), for:.touchUpInside)
-
         
+
+        cell.SiparişDetay.addTarget(self, action: #selector(methodname), for: .touchUpInside)
+        
+
         return cell
     }
-    @objc func Print(){
+    //String(user2.User_ID)
+    
+    @objc func methodname()
+    {
+        //your function code
         print("tıklandı")
     }
-    //String(user2.User_ID)
     func getData(){
         let UserorderInfo = User_Order_Info()
         Alamofire.request("http://qrparam.net/User_Order_Info/GecmisSiparisler/?User_ID=30268", method: .get).validate().responseJSON { response in
