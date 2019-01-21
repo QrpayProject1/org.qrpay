@@ -17,9 +17,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
+        
+        [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
        FirebaseApp.configure()
+        if checkSMS(){
+            print("Auth")
+            if(checkSignUp()){
+              
+               
+                    let vc  = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginVc")
+                    
+                    let navVC = UINavigationController(rootViewController: vc)
+                    let share = UIApplication.shared.delegate as? AppDelegate
+                    share?.window?.rootViewController = navVC
+                    share?.window?.makeKeyAndVisible()
+                
+            }
+            else{
+                let vc  = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SignUp")
+                
+                let navVC = UINavigationController(rootViewController: vc)
+                let share = UIApplication.shared.delegate as? AppDelegate
+                share?.window?.rootViewController = navVC
+                share?.window?.makeKeyAndVisible()
+            }
+        }
+        else{
+            print("Any Auth")
+            let vc  = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewVc")
+            
+            let navVC = UINavigationController(rootViewController: vc)
+            let share = UIApplication.shared.delegate as? AppDelegate
+            share?.window?.rootViewController = navVC
+            share?.window?.makeKeyAndVisible()
+        }
         if #available(iOS 10, *){
             UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in  })
             application.registerForRemoteNotifications()
@@ -30,6 +63,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+    
+    func checkSMS() -> Bool{
+        if UserDefaults.standard.bool(forKey: "islogged") == true{
+            return true
+        }
+        else{
+        return false
+        }
+    }
+    
+    func checkSignUp()->Bool{
+        if UserDefaults.standard.bool(forKey: "isSignUp") == true {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    func checkLogin()->Bool{
+        
+        if UserDefaults.standard.value(forKey: "isLogin") != nil{
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -46,6 +108,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

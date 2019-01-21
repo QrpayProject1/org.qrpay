@@ -25,7 +25,7 @@ class User_Order_Info{
     var Order_Total_Price:Float = 0.0;
     var Order_Payment_Method: String = "";
     var Shopping_Box_ID : Int = 0;
-        
-   
+    var Order_Web_Site: String = "";
+    var Address_Title:String="";
 
 }

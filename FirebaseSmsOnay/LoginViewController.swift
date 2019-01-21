@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MessageUI
 
 class LoginViewController: UIViewController {
 
@@ -63,22 +64,20 @@ user.User_Password="aaaa"
                         self.user.User_Surname = json["User_Surname"].stringValue
                         self.user.User_ID = json["User_ID"].intValue
                         self.user.User_Password =  json["User_Password"].stringValue
-                    
-                   
+ 
                     print(json["User_Email"].stringValue)
+                    UserDefaults.standard.set(self.user.User_ID , forKey: "isLogin")
                     let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomeViewController
                       self.performSegue(withIdentifier: "HomePageSegue", sender: self)
-                    self.present(vc, animated: true, completion: nil)
+                    
                 }
                 else{
                     self.label_mistake.isHidden = false;
-                    let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomeViewController
-                    self.value2 = "merhaba"
-                    self.performSegue(withIdentifier: "HomePageSegue", sender: self)
+                  
+                   // self.performSegue(withIdentifier: "HomePageSegue", sender: self)
 
-                    self.present(vc, animated: true, completion: nil)
+                   // self.present(vc, animated: true, completion: nil)
                 }
                 
             case .failure(let error):

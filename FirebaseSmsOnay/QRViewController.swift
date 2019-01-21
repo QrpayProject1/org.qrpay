@@ -13,18 +13,24 @@ import SwiftyJSON
 
 class QRViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
     
+
+
+    
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     var user1 = User_Credentials()
    // var timer: Timer!;
+    var yeniArr=0;
     var isStartQr=false;
     let captureSession = AVCaptureSession()
    
 
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
+
        print("qr1 \(user1.User_ID)")
+        
 
        startQr()
     }
@@ -74,9 +80,8 @@ class QRViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate 
                 qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
                 qrCodeFrameView.layer.borderWidth = 2
                 view.addSubview(qrCodeFrameView)
-                view.bringSubviewToFront(qrCodeFrameView)
-                print("bişeylerer")
-                 print("bişeylerer")
+               // view.bringSubview(toFront: qrCodeFrameView)
+              
             }
         } catch {
             //herhangi bir hata oluşursa , sadece hatayı yazdırın ve daha fazla devam etmeyin
@@ -91,6 +96,7 @@ class QRViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate 
         // Do any additional setup after loading the view.
      //   view.bringSubview(toFront:messageLabel)
        // view.bringSubview(toFront:topbar)
+    
         
     }
     //qr kodu tanıdığında bunu çağırır
@@ -116,10 +122,13 @@ class QRViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate 
             // Kodlanan bilgilere bir AVMetadataMachineReadableCode nesnesinin stringValue özelliği kullanılarak erişilebilir.
             if metadataObj.stringValue != nil {
                 //messageLabel.text = metadataObj.stringValue
+ 
                 var value = metadataObj.stringValue
                 if((value?.count)!>0){
                     print(value!)
-                  
+                
+                  print(value?.count)
+                 /*  // var NameArr = value?.split(separator: "-")
                     var fullNameArr = value?.split(separator: ",")
                     var yeniArr3 = fullNameArr?[0].split(separator: ":")
                     var key:String=String((yeniArr3?[1])!).replacingOccurrences(of: "\"", with: "")
@@ -132,20 +141,56 @@ class QRViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate 
                     var yeniveriArr2 = fullNameArr?[18].split(separator: ":")
                     print(fullNameArr?[4])
                    print(yeniveriArr)
-                    var shoppingid:Int = Int(String((yeniveriArr2?[1])!).replacingOccurrences(of: "}", with: ""))!
+                        let shoppingid:Int = Int(String((yeniveriArr2?[1])!).replacingOccurrences(of: "}", with: ""))!
                     var productname:String = String((yeniveriArr1?[1])!).replacingOccurrences(of: "\"", with: "")
                     let ordercode:Int=Int(String((yeniveriArr?[1])!).replacingOccurrences(of: "\"", with: ""))!
                     print("ordercode\(yeniveriArr?[1])")
                     print("productname\(productname)")
                    
                     print("shopping\(shoppingid)")
+                    print("userıd\(user1.User_ID)")
                     var userorderinfo=User_Order_Info()
                     userorderinfo.Order_Code=Int(ordercode)
                     userorderinfo.Order_Product_Name=productname
                     userorderinfo.Shopping_Box_ID=shoppingid
-                    postUserJson(userordernfo: userorderinfo)
+                    postUserJson(userorderInfo: userorderinfo)
+                    
+                    
+                    }*/
+                var fullNameArr = value?.split(separator: "-")
+               
+                var key:String = String((fullNameArr?[0])!)
+                print("key \(key)")
+                    if key == "qrpay"{
+                         var i=1
+                        print("gelendizi \(fullNameArr?[1])")
+                        for _ in 1...((fullNameArr?.count)!-1){
+                           // print("boyutu \(fullNameArr?.count)")
+                        var yeniArr = fullNameArr?[i].split(separator: " ")
+                     
+                           var ordercode = yeniArr?[0].split(separator: ":")
+                            var ordercode1:Int=Int(String((ordercode?[1])!))!
+                            var productname = yeniArr?[1].split(separator: ":")
+                            var productname1:String = String((productname?[1])!)
+                            var shoppingid = yeniArr?[2].split(separator: ":")
+                            var shoppingid1:Int=Int(String((shoppingid?[1])!))!
+                            print(ordercode1)
+                            print(productname1)
+                            print(shoppingid1)
+                            
+                          //  var productname = yeniArr?[1].split(separator: ":")
+                           // let shoppingid = String((yeniArr?[2])!).split(separator: ":")
+                        //    let shoppingid:String = String((yeniArr?[2])!).split(separator: ":")
+                           var userorderinfo=User_Order_Info()
+                            userorderinfo.Order_Code=Int(ordercode1)
+                           userorderinfo.Order_Product_Name=productname1
+                            userorderinfo.Shopping_Box_ID=Int(shoppingid1)
+                            postUserJson(userorderInfo: userorderinfo)
+                           
+                             i+=1
+                        }
+                        // print(yeniArr)
                     }
-                  
                   //  print(yeniveriArr)
                  /*   var a = 0
                     for _ in 0...fullNameArr.count{
@@ -161,6 +206,8 @@ class QRViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate 
                         
                 }*/
                     captureSession.stopRunning();
+                    
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }}
@@ -169,14 +216,49 @@ class QRViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate 
         // Dispose of any resources that can be recreated.
     }
     
-    func postUserJson(userordernfo:User_Order_Info){
+    func postUserJson(userorderInfo:User_Order_Info){
         
-        let url="http://qrparam.net/User_Order_Info/QRKontrol/?Order_Code="+String(userordernfo.Order_Code)+"&Order_Product_Name="+userordernfo.Order_Product_Name
-        let url1="&Shopping_Box_ID="+String(userordernfo.Shopping_Box_ID)
+        let url="http://qrparam.net/User_Order_Info/QRKontrol/?Order_Code="+String(userorderInfo.Order_Code)+"&Order_Product_Name="+userorderInfo.Order_Product_Name
+        let url1="&Shopping_Box_ID="+String(userorderInfo.Shopping_Box_ID)
         
         let totalurl=url+url1
         
         let correctURL = totalurl.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        print(correctURL)
+        Alamofire.request(correctURL!,method: .get).validate().responseJSON{
+            response in
+            
+            switch(response.result){
+                
+            case .success(let value):
+                let json=JSON(value)
+                print(json)
+                self.postUserJson1(userorderInfo:userorderInfo)
+                /*  if json.count>0
+                 {
+                 let storyboard=UIStoryboard(name: "Main", bundle: nil)
+                 let vc=storyboard.instantiateViewController(withIdentifier: "LoginVc")
+                 self.present(vc,animated: true,completion: nil);
+                 }*/
+                
+            case .failure(let error):
+                print(error)
+                
+                
+                
+            }
+        }
+        
+    }
+    
+    func postUserJson1(userorderInfo:User_Order_Info){
+        
+    
+        let url="http://qrparam.net/User_Credentials/IDGetir/?User_ID="+String(user1.User_ID)+"&Shopping_Box_ID="+String(userorderInfo.Shopping_Box_ID)
+        
+  
+        
+        let correctURL = url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         print(correctURL)
         Alamofire.request(correctURL!,method: .get).validate().responseJSON{
             response in

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		396268B721EDBD800008D8CE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396268B621EDBD800008D8CE /* SettingsViewController.swift */; };
+		396268B921EDC0CE0008D8CE /* UptadePinfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396268B821EDC0CE0008D8CE /* UptadePinfoViewController.swift */; };
+		396268BB21EDCFB70008D8CE /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396268BA21EDCFB70008D8CE /* PasswordChangeViewController.swift */; };
+		396268C121EE0FAB0008D8CE /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396268C021EE0FAB0008D8CE /* AddressTableViewCell.swift */; };
+		396268C321EE11280008D8CE /* AddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396268C221EE11280008D8CE /* AddressTableViewController.swift */; };
+		493EF81C21F5A98C001FD902 /* SiparisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */; };
+		493EF81E21F5A994001FD902 /* SiparisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */; };
+		493EF82021F5ABD5001FD902 /* User_Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81F21F5ABD5001FD902 /* User_Address.swift */; };
 		49484E9621D219D200019080 /* verificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49484E9521D219D200019080 /* verificationViewController.swift */; };
 		4954F15021CCDD7A00E539D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954F14F21CCDD7A00E539D5 /* AppDelegate.swift */; };
 		4954F15221CCDD7A00E539D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954F15121CCDD7A00E539D5 /* ViewController.swift */; };
@@ -22,6 +30,8 @@
 		499D1ECE21D363C4009B1B69 /* User_Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D1ECD21D363C4009B1B69 /* User_Credentials.swift */; };
 		499D1ED021D363C8009B1B69 /* User_Order_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D1ECF21D363C8009B1B69 /* User_Order_Info.swift */; };
 		499D1ED221D363CD009B1B69 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D1ED121D363CD009B1B69 /* QRViewController.swift */; };
+		49E0224321D63FED00E85A85 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0224221D63FED00E85A85 /* TableViewController.swift */; };
+		49E0224521D63FF200E85A85 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0224421D63FF200E85A85 /* TableViewCell.swift */; };
 		73EDB93DB1453C5F6813E9B6 /* Pods_FirebaseSmsOnayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BDE21D2C7D34BD9D22A0C0 /* Pods_FirebaseSmsOnayTests.framework */; };
 		80D54883A01C6219B37EDDC5 /* Pods_FirebaseSmsOnay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277C1CEB110E9CDEEBD204E9 /* Pods_FirebaseSmsOnay.framework */; };
 		8AA01C6DBC3177D97875D001 /* Pods_FirebaseSmsOnayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D616FB7A7F4536188C9449D2 /* Pods_FirebaseSmsOnayUITests.framework */; };
@@ -48,6 +58,14 @@
 		02B66C5E87A3C01684BC5C19 /* Pods-FirebaseSmsOnayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseSmsOnayUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseSmsOnayUITests/Pods-FirebaseSmsOnayUITests.release.xcconfig"; sourceTree = "<group>"; };
 		277C1CEB110E9CDEEBD204E9 /* Pods_FirebaseSmsOnay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseSmsOnay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A19F0C043C791876611AB7D /* Pods-FirebaseSmsOnayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseSmsOnayUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseSmsOnayUITests/Pods-FirebaseSmsOnayUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		396268B621EDBD800008D8CE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		396268B821EDC0CE0008D8CE /* UptadePinfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UptadePinfoViewController.swift; sourceTree = "<group>"; };
+		396268BA21EDCFB70008D8CE /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
+		396268C021EE0FAB0008D8CE /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
+		396268C221EE11280008D8CE /* AddressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewController.swift; sourceTree = "<group>"; };
+		493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiparisTableViewController.swift; sourceTree = "<group>"; };
+		493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiparisTableViewCell.swift; sourceTree = "<group>"; };
+		493EF81F21F5ABD5001FD902 /* User_Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User_Address.swift; sourceTree = "<group>"; };
 		49484E9521D219D200019080 /* verificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verificationViewController.swift; sourceTree = "<group>"; };
 		4954F14C21CCDD7900E539D5 /* FirebaseSmsOnay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseSmsOnay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4954F14F21CCDD7A00E539D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +88,8 @@
 		499D1ECD21D363C4009B1B69 /* User_Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User_Credentials.swift; sourceTree = "<group>"; };
 		499D1ECF21D363C8009B1B69 /* User_Order_Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User_Order_Info.swift; sourceTree = "<group>"; };
 		499D1ED121D363CD009B1B69 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		49E0224221D63FED00E85A85 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		49E0224421D63FF200E85A85 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6687AD86CFCA8FB305356641 /* Pods-FirebaseSmsOnay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseSmsOnay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseSmsOnay/Pods-FirebaseSmsOnay.debug.xcconfig"; sourceTree = "<group>"; };
 		6B0F56D15A4F2B7D6578829C /* Pods-FirebaseSmsOnayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseSmsOnayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseSmsOnayTests/Pods-FirebaseSmsOnayTests.release.xcconfig"; sourceTree = "<group>"; };
 		82E5A5626D683AF8075843B6 /* Pods-FirebaseSmsOnayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseSmsOnayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseSmsOnayTests/Pods-FirebaseSmsOnayTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,16 +152,26 @@
 			isa = PBXGroup;
 			children = (
 				4954F17F21CD016300E539D5 /* FirebaseSmsOnay.entitlements */,
+				4954F15321CCDD7A00E539D5 /* Main.storyboard */,
 				4954F14F21CCDD7A00E539D5 /* AppDelegate.swift */,
 				499D1ECD21D363C4009B1B69 /* User_Credentials.swift */,
 				499D1EC721D360F5009B1B69 /* SignUpViewController.swift */,
 				499D1ECF21D363C8009B1B69 /* User_Order_Info.swift */,
+				493EF81F21F5ABD5001FD902 /* User_Address.swift */,
 				4954F15121CCDD7A00E539D5 /* ViewController.swift */,
 				499D1ED121D363CD009B1B69 /* QRViewController.swift */,
 				499D1ECB21D3633F009B1B69 /* HomeViewController.swift */,
 				499D1EC921D3624D009B1B69 /* LoginViewController.swift */,
 				49484E9521D219D200019080 /* verificationViewController.swift */,
-				4954F15321CCDD7A00E539D5 /* Main.storyboard */,
+				493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */,
+				493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */,
+				49E0224221D63FED00E85A85 /* TableViewController.swift */,
+				49E0224421D63FF200E85A85 /* TableViewCell.swift */,
+				396268B621EDBD800008D8CE /* SettingsViewController.swift */,
+				396268B821EDC0CE0008D8CE /* UptadePinfoViewController.swift */,
+				396268BA21EDCFB70008D8CE /* PasswordChangeViewController.swift */,
+				396268C221EE11280008D8CE /* AddressTableViewController.swift */,
+				396268C021EE0FAB0008D8CE /* AddressTableViewCell.swift */,
 				4954F15621CCDD8D00E539D5 /* Assets.xcassets */,
 				4954F15821CCDD8D00E539D5 /* LaunchScreen.storyboard */,
 				4954F15B21CCDD8D00E539D5 /* Info.plist */,
@@ -336,15 +366,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FirebaseSmsOnayTests-checkManifestLockResult.txt",
 			);
@@ -358,15 +384,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FirebaseSmsOnay-checkManifestLockResult.txt",
 			);
@@ -380,15 +402,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FirebaseSmsOnayUITests-checkManifestLockResult.txt",
 			);
@@ -402,8 +420,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseSmsOnay/Pods-FirebaseSmsOnay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
@@ -413,8 +429,6 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -434,15 +448,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493EF81C21F5A98C001FD902 /* SiparisTableViewController.swift in Sources */,
 				49484E9621D219D200019080 /* verificationViewController.swift in Sources */,
 				499D1ECE21D363C4009B1B69 /* User_Credentials.swift in Sources */,
 				4954F15221CCDD7A00E539D5 /* ViewController.swift in Sources */,
+				49E0224321D63FED00E85A85 /* TableViewController.swift in Sources */,
+				493EF82021F5ABD5001FD902 /* User_Address.swift in Sources */,
 				499D1EC821D360F5009B1B69 /* SignUpViewController.swift in Sources */,
+				396268BB21EDCFB70008D8CE /* PasswordChangeViewController.swift in Sources */,
 				499D1ECA21D3624D009B1B69 /* LoginViewController.swift in Sources */,
+				493EF81E21F5A994001FD902 /* SiparisTableViewCell.swift in Sources */,
+				49E0224521D63FF200E85A85 /* TableViewCell.swift in Sources */,
 				499D1ED221D363CD009B1B69 /* QRViewController.swift in Sources */,
 				499D1ED021D363C8009B1B69 /* User_Order_Info.swift in Sources */,
+				396268B921EDC0CE0008D8CE /* UptadePinfoViewController.swift in Sources */,
+				396268C321EE11280008D8CE /* AddressTableViewController.swift in Sources */,
 				4954F15021CCDD7A00E539D5 /* AppDelegate.swift in Sources */,
 				499D1ECC21D3633F009B1B69 /* HomeViewController.swift in Sources */,
+				396268C121EE0FAB0008D8CE /* AddressTableViewCell.swift in Sources */,
+				396268B721EDBD800008D8CE /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +646,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4G25QJY7H;
 				INFOPLIST_FILE = FirebaseSmsOnay/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -642,6 +667,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4G25QJY7H;
 				INFOPLIST_FILE = FirebaseSmsOnay/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -662,6 +688,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4G25QJY7H;
 				INFOPLIST_FILE = FirebaseSmsOnayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -684,6 +711,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4G25QJY7H;
 				INFOPLIST_FILE = FirebaseSmsOnayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -705,6 +733,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4G25QJY7H;
 				INFOPLIST_FILE = FirebaseSmsOnayUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -726,6 +755,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4G25QJY7H;
 				INFOPLIST_FILE = FirebaseSmsOnayUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

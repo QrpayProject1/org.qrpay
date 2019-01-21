@@ -22,16 +22,16 @@ class verificationViewController: UIViewController {
     @IBAction func Login(_ sender: Any) {
         let defaults = UserDefaults.standard
         let credential: PhoneAuthCredential = PhoneAuthProvider.provider().credential(withVerificationID: defaults.string(forKey: "authVID")!, verificationCode: code.text!)
-        Auth.auth().signIn(with: credential){(user, error) in
+            Auth.auth().signIn(with: credential){(user, error) in
             if error != nil {
                 print("error: \(String(describing: error?.localizedDescription))")
             }else{
-                print("Phone number: \(user?.phoneNumber)")
+               
                 let userInfo = user?.providerData[0]
-                print("provider ID: \(userInfo?.providerID)")
+               
                 
               //  self.performSegue(withIdentifier: "logged", sender: Any?.self)
-               
+               UserDefaults.standard.set(true, forKey: "islogged")
                 let  storyboard:UIStoryboard=UIStoryboard(name: "Main", bundle: nil)
                 let vc=storyboard.instantiateViewController(withIdentifier: "SignUp") as! SignUpViewController
                 self.present(vc, animated: true, completion: nil)
@@ -40,6 +40,13 @@ class verificationViewController: UIViewController {
         }
     }
     
+    func setInitialViewController() {
+        if Auth.auth().currentUser != nil {
+            // setup home screen
+        } else {
+            //Setup login screen
+        }
+    }
     /*
     // MARK: - Navigation
 

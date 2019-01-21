@@ -17,14 +17,21 @@ class ViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        /*if(UserDefaults.standard.bool(forKey: "islogged")){
+            print("islogged")
+            let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "HomePage" )
+            self.present(vc,animated: true)
+            
+         
+        }*/
     }
 
     @IBAction func sendCode(_ sender: Any) {
-        let alert = UIAlertController(title:"phone number", message:"Telefon Numaranızı Doğru Girdinizmi \n \(phoneNum.text!)",preferredStyle: .alert)
+        let alert = UIAlertController(title:"phone number", message:"Telefon Numaranızı Doğru Girdinizmi \n \("+90"+phoneNum.text!)",preferredStyle: .alert)
         let action = UIAlertAction(title: "Evet", style: .default) {
             (UIAlertAction) in
-            PhoneAuthProvider.provider().verifyPhoneNumber(self.phoneNum.text!, uiDelegate: nil) {(verificationID, error) in
+            PhoneAuthProvider.provider().verifyPhoneNumber("+90"+self.phoneNum.text!, uiDelegate: nil) {(verificationID, error) in
                 if error != nil {
                     print("error: \(String(describing: error?.localizedDescription))")
                  

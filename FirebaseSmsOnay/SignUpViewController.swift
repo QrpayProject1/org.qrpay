@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var TF_tc: UITextField!
@@ -31,10 +32,14 @@ class SignUpViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        if(UserDefaults.standard.bool(forKey: "isSignUp")){
 
-    
+            let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+           let vc = storyboard.instantiateViewController(withIdentifier: "HomePage")
+            self.present(vc,animated: true)
+        }
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,15 +50,44 @@ class SignUpViewController: UIViewController {
     
         let user=User_Credentials()
        
-         if let tc=TF_tc.text { user.User_Credential_Number=Int(tc)!}
+         if let tc=TF_tc.text { user.User_Credential_Number=Int(tc)!
+            
+        }
         
          if let birdth=TF_birdth.text {user.User_Birth_Date=birdth}
         
-         if let mail=TF_mail.text {  user.User_Email=mail}
+         if let mail=TF_mail.text {
+            // validate an email for the right format
+               func isValidEmail(mail:String) -> Bool {
+                let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+                
+                let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+                return emailTest.evaluate(with: mail)
+            }
+            if  isValidEmail(mail:mail){
+                user.User_Email=mail
+                print("dogru")
+                print(user.User_Email)
+            
+            }else{
+                let alert = UIAlertController(title: "Email", message: "Mail adresinizi doğru giriniz", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
        
-         if let name=TF_name.text { user.User_Name=name}
+         if let name=TF_name.text {
+            let upperString = name.uppercased(with: Locale(identifier: "tr"))
+            user.User_Name=upperString
+            print(user.User_Name)
+        }
         
-         if let surname=TF_surname.text {user.User_Surname=surname}
+         if let surname=TF_surname.text {
+            let upperString1 = surname.uppercased(with:Locale(identifier: "tr"))
+            user.User_Surname=upperString1
+            print(user.User_Surname)
+          //  TF_password.becomeFirstResponder()
+        }
         
          if let password=TF_password.text {user.User_Password=password}
         
@@ -75,7 +109,7 @@ class SignUpViewController: UIViewController {
     
   
     func postUserJson(user:User_Credentials){
-
+      print(user.User_Name)
         let url="http://qrparam.net/User_Credentials/Insert/?User_Name="+user.User_Name+"&User_Surname="+user.User_Surname
         let url2="&User_Email="+user.User_Email+"&User_Password="+user.User_Password
         let url3="&User_Phone_Number="+String(user.User_Phone_Number)
@@ -99,11 +133,15 @@ class SignUpViewController: UIViewController {
                     let storyboard=UIStoryboard(name: "Main", bundle: nil)
                     let vc=storyboard.instantiateViewController(withIdentifier: "LoginVc")
                     self.present(vc,animated: true,completion: nil);
+                }else {
+                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
                 }
-                
+                UserDefaults.standard.set("true", forKey: "isSignUp")
             case .failure(let error):
                 print(error)
-                
                 
                 
             }
@@ -120,5 +158,11 @@ class SignUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+ 
+    
+    
 }
