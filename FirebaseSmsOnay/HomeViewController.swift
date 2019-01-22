@@ -10,6 +10,7 @@ import UIKit
 
 
 class HomeViewController: UIViewController {
+    
     @IBOutlet weak var QrOpen: UIButton!
 
    
@@ -34,13 +35,23 @@ class HomeViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     @IBAction func btnSiparisler(_ sender: Any) {
+        
         self.performSegue(withIdentifier: "Siparissegue", sender: self)
+    }
+    
+    
+    @IBAction func Address(_ sender: Any) {
+        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SaveAddressStoryboard") as! SaveAddressViewController
+        self.present(vc, animated: true, completion: nil)
     }
     override func viewDidLoad() {
       
     super.viewDidLoad()
-     
+        
+         UserDefaults.standard.set(user.User_ID, forKey: "userıd")
         if UserDefaults.standard.value(forKey: "isLogin") != nil {
+            
          
         }
         print("home\(user.User_Email)")
@@ -71,6 +82,7 @@ class HomeViewController: UIViewController {
            
             vc.user = self.user
     }
+    
     
 }
    

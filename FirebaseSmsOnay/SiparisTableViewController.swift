@@ -13,7 +13,7 @@ class SiparisTableViewController: UITableViewController {
   // var user4 = User_Order_Info()
     var UserorderInfoİceriklist = [User_Order_Info]();
     var UserOrderInfoAddresslist = [User_Address]();
-     var user4 = User_Credentials()
+     var user3 = User_Credentials()
     let navigationBar=0;
     let address:String=""
     var labell:UILabel=UILabel()
@@ -22,14 +22,14 @@ class SiparisTableViewController: UITableViewController {
         getData2();
         
         
-        let ordercode=UserDefaults.standard.string(forKey: "ordercode")
-         print("orderdegeri....\(ordercode)")
+       print("userıdson...\(user3.User_ID)")
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-  print("siparişcelliçi\(user4.User_ID)")
+ 
    
     }
 
@@ -68,7 +68,7 @@ class SiparisTableViewController: UITableViewController {
         print("listecount \(UserorderInfoİceriklist.count)")
         
         
-        print("cell\(UserorderInfoİceriklist[indexPath.row].Order_Product_Name)")
+        print("cellname\(UserorderInfoİceriklist[indexPath.row].Order_Product_Name)")
         cell.OrderCode.text=String(UserorderInfoİceriklist[indexPath.row].Order_Code);
         cell.OrderProductName.text=UserorderInfoİceriklist[indexPath.row].Order_Product_Name;
         cell.OrderUnitPrice.text=String(UserorderInfoİceriklist[indexPath.row].Order_Unit_Price);
@@ -80,9 +80,12 @@ class SiparisTableViewController: UITableViewController {
     }
 
     func getData2(){
+         let ordercode=UserDefaults.standard.string(forKey: "ordercode")
+        let userıd=UserDefaults.standard.string(forKey: "userıd")
+        print("orderdegeri....\(ordercode)")
         let UserorderInfoİcerik = User_Order_Info()
         let UserorderInfoAddress = User_Address()
-        Alamofire.request("http://qrparam.net/User_Order_Info/GecmisSiparislerIcerik/?Order_Code=5&User_ID=20107", method: .get).validate().responseJSON { response in
+        Alamofire.request("http://qrparam.net/User_Order_Info/GecmisSiparislerIcerik/?Order_Code="+ordercode!+"&User_ID="+userıd!, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -91,7 +94,7 @@ class SiparisTableViewController: UITableViewController {
                    
                 
                     print(json)
-                    for index in 0...json.count-1{
+                    for index in 0..<json.count-1{
                         print("index \(index)")
                         
                         UserorderInfoİcerik.Order_ID=json["list"][index]["Order_ID"].intValue
@@ -110,7 +113,7 @@ class SiparisTableViewController: UITableViewController {
                         UserorderInfoİcerik.Order_Payment_Method=json["list"][index]["Order_Payment_Method"].stringValue
                         UserorderInfoİcerik.Shopping_Box_ID=json["list"][index]["Shopping_Box_ID"].intValue
                         UserorderInfoİcerik.Order_Web_Site=json["list"][index]["Order_Web_Site"].stringValue
-                        UserorderInfoAddress.User_Address_ID=json["addr"][index][" User_Address_ID"].intValue
+                        UserorderInfoAddress.User_Address_ID=json["addr"][index]["User_Address_ID"].intValue
                         UserorderInfoAddress.Address_Title=json["addr"][index]["Address_Title"].stringValue
                         UserorderInfoAddress.Address_Country=json["addr"][index]["Address_Country"].stringValue
                         UserorderInfoAddress.Address_City=json["addr"][index]["Address_City"].stringValue
@@ -122,10 +125,11 @@ class SiparisTableViewController: UITableViewController {
                         self.UserorderInfoİceriklist.append(UserorderInfoİcerik)
                         self.UserOrderInfoAddresslist.append(UserorderInfoAddress)
                         // var User_ID:Int = 0
-                        print(UserorderInfoİcerik.Order_ID)
+                        print("orderıd..\(UserorderInfoİcerik.Order_ID)")
                         print(UserorderInfoİcerik.Order_Product_Name)
                       // let address=UserorderInfoİceriklist.Address_Title
                      //   print("içerde\(address)")
+                        print("adress..\(self.UserOrderInfoAddresslist[0].Address_Title)")
                         
                     }
                     
@@ -133,6 +137,7 @@ class SiparisTableViewController: UITableViewController {
                     let string2=self.UserOrderInfoAddresslist[0].Address_Full_Address
                     let string3=self.UserOrderInfoAddresslist[0].Address_County+"/"+self.UserOrderInfoAddresslist[0].Address_City+"/"+self.UserOrderInfoAddresslist[0].Address_Country
                     let string4=self.UserOrderInfoAddresslist[0].Address_Post_Code
+                    print("string..\(string4)")
                     self.labell.text="Adres Başlığı:"+string1+"\n"+"Adress:"+string2+"\n"+string3+"/"+String(string4)
                     //string1+string2+string3+String(string4)
                     self.tableView.reloadData();
