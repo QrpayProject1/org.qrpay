@@ -17,6 +17,7 @@
 		493EF81C21F5A98C001FD902 /* SiparisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */; };
 		493EF81E21F5A994001FD902 /* SiparisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */; };
 		493EF82021F5ABD5001FD902 /* User_Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81F21F5ABD5001FD902 /* User_Address.swift */; };
+		4940EBBF21F7052400536471 /* SaveAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940EBBE21F7052400536471 /* SaveAddressViewController.swift */; };
 		49484E9621D219D200019080 /* verificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49484E9521D219D200019080 /* verificationViewController.swift */; };
 		4954F15021CCDD7A00E539D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954F14F21CCDD7A00E539D5 /* AppDelegate.swift */; };
 		4954F15221CCDD7A00E539D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954F15121CCDD7A00E539D5 /* ViewController.swift */; };
@@ -70,6 +71,7 @@
 		493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiparisTableViewController.swift; sourceTree = "<group>"; };
 		493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiparisTableViewCell.swift; sourceTree = "<group>"; };
 		493EF81F21F5ABD5001FD902 /* User_Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User_Address.swift; sourceTree = "<group>"; };
+		4940EBBE21F7052400536471 /* SaveAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAddressViewController.swift; sourceTree = "<group>"; };
 		49484E9521D219D200019080 /* verificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verificationViewController.swift; sourceTree = "<group>"; };
 		4954F14C21CCDD7900E539D5 /* FirebaseSmsOnay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseSmsOnay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4954F14F21CCDD7A00E539D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				499D1ECB21D3633F009B1B69 /* HomeViewController.swift */,
 				499D1EC921D3624D009B1B69 /* LoginViewController.swift */,
 				49484E9521D219D200019080 /* verificationViewController.swift */,
+				4940EBBE21F7052400536471 /* SaveAddressViewController.swift */,
 				493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */,
 				493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */,
 				49E0224221D63FED00E85A85 /* TableViewController.swift */,
@@ -461,6 +464,7 @@
 				49E0224321D63FED00E85A85 /* TableViewController.swift in Sources */,
 				399937C121F739E4007B8092 /* QrOrderViewController.swift in Sources */,
 				493EF82021F5ABD5001FD902 /* User_Address.swift in Sources */,
+				4940EBBF21F7052400536471 /* SaveAddressViewController.swift in Sources */,
 				499D1EC821D360F5009B1B69 /* SignUpViewController.swift in Sources */,
 				396268BB21EDCFB70008D8CE /* PasswordChangeViewController.swift in Sources */,
 				399937C321F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift in Sources */,

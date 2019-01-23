@@ -41,8 +41,11 @@ class AddressTableViewController: UITableViewController {
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell", for: indexPath) as? AddressTableViewCell
-    
-        cell?.label_address.text = addressList[indexPath.row].Address_Title+"\n"+addressList[indexPath.row].Address_City
+         let string=addressList[indexPath.row].Address_Title+"\n"+addressList[indexPath.row].Address_Country
+        let string1=addressList[indexPath.row].Address_County+"\n"+addressList[indexPath.row].Address_City
+        let string2=addressList[indexPath.row].Address_Full_Address+"\n"+String(addressList[indexPath.row].Address_Post_Code)
+        cell?.label_address.text = string+string1+string2
+        print("sonadres..\(cell?.label_address.text)")
         
         return cell!
     }
@@ -51,7 +54,7 @@ class AddressTableViewController: UITableViewController {
     func AddressRequest(){
         let url = "http://qrparam.net/User_Address_Info/Listele/?User_ID="+String(userID)
         let correctURL = url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
-        let address=User_Address()
+       
         
         Alamofire.request(correctURL!).validate().responseJSON{
             
@@ -63,7 +66,10 @@ class AddressTableViewController: UITableViewController {
             case .success(let value):
               let addressjson=JSON(value)
               print(addressjson)
+              print(addressjson.count)
               for i in 0...addressjson.count-1{
+                print(i)
+                 let address=User_Address()
                   address.User_Address_ID = addressjson[i]["User_Address_ID"].intValue
                   address.Address_Title = addressjson[i]["Address_Title"].stringValue
                   address.Address_Country = addressjson[i]["Address_Country"].stringValue
@@ -74,8 +80,11 @@ class AddressTableViewController: UITableViewController {
                   address.Address_Invoice_Type = addressjson[i]["Address_Invoice_Type"].stringValue
                   address.User_ID = addressjson[i]["User_ID"].stringValue
                 self.addressList.append(address)
+                
               }
-           
+            
+               self.tableView.reloadData();
+        
                 
                 
             case.failure(let error):

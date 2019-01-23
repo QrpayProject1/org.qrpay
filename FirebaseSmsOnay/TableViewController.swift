@@ -10,13 +10,14 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-var myIndex=0
+
+
 class TableViewController: UITableViewController {
 
     
     var UserorderInfolist = [User_Order_Info]();
     var user2 = User_Credentials()
-  
+    @objc var methodname:Int=0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,20 @@ class TableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return UserorderInfolist.count;
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You tapped cell number \(indexPath.section).")
+        print("Cell cliked value is \(indexPath.row)")
+        
+        
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let controller = storyboard.instantiateViewController(withIdentifier: "SiparisDetay") as! SiparisTableViewController
+        
+
+            self.navigationController?.pushViewController(controller, animated: true)
+            
+        
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! TableViewCell
@@ -52,24 +67,21 @@ class TableViewController: UITableViewController {
         let ordercode=cell.Ordercode.text
         UserDefaults.standard.set(ordercode, forKey: "ordercode")
         
-        cell.SiparişDetay.tag=indexPath.row
+      //  cell.SiparişDetay.tag=indexPath.row
         
 
-        cell.SiparişDetay.addTarget(self, action: #selector(methodname), for: .touchUpInside)
+      // cell.SiparişDetay.addTarget(self, action: #selector(getter: methodname), for: .touchUpInside)
         
 
         return cell
     }
     //String(user2.User_ID)
     
-    @objc func methodname()
-    {
-        //your function code
-        print("tıklandı")
-    }
+  
     func getData(){
+        print("siparişuserıd..\(user2.User_ID)")
         let UserorderInfo = User_Order_Info()
-        Alamofire.request("http://qrparam.net/User_Order_Info/GecmisSiparisler/?User_ID=30268", method: .get).validate().responseJSON { response in
+        Alamofire.request("http://qrparam.net/User_Order_Info/GecmisSiparisler/?User_ID="+String(user2.User_ID), method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -107,17 +119,7 @@ class TableViewController: UITableViewController {
             
         }
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if(segue.identifier == "Siparisiceriksegue"){
-            guard let qrvc = segue.destination as? SiparisTableViewController else{return}
-            //   qrvc.value=self.value2
-            //print("qrsegue")
-            print("homepace ıd \(self.user2.User_ID)")
-            qrvc.user4=self.user2
-        }
-        
-    }
+   
     
 }
 

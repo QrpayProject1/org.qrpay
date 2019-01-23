@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="meq-7x-KK6">
+
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8gY-Kz-bEE">
+
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -62,14 +64,18 @@
                                 <color key="textColor" red="1" green="0.18155876470000001" blue="0.1477498444" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="barbarosistif@gmail.com" borderStyle="roundedRect" placeholder="Kullanıcı Adı" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OeT-ee-9uq">
+
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sadifeyildirimm@gmail.com" borderStyle="roundedRect" placeholder="Kullanıcı Adı" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OeT-ee-9uq">
+
                                 <rect key="frame" x="70" y="142" width="192" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" borderStyle="roundedRect" placeholder="Şifre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XD-Cn-Waq">
+
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ss.11" borderStyle="roundedRect" placeholder="Şifre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XD-Cn-Waq">
+
                                 <rect key="frame" x="70" y="180" width="192" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -317,6 +323,10 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="Address:" destination="meq-7x-KK6" eventType="touchUpInside" id="NU7-Oy-sqC"/>
+                                    <action selector="btnSiparisler:" destination="meq-7x-KK6" eventType="touchUpInside" id="9nz-8U-vo3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6j-cQ-sTd">
                                 <rect key="frame" x="89" y="358" width="196" height="50"/>
@@ -358,6 +368,7 @@
                         <segue destination="Has-nf-53o" kind="show" identifier="qrsegue" id="LcV-gW-6NZ"/>
                         <segue destination="9Vl-vI-P6i" kind="show" identifier="settingsegue" id="RzQ-hb-Fia"/>
                         <segue destination="PQj-dK-pDD" kind="show" identifier="Siparissegue" id="oOQ-bw-aTU"/>
+                        <segue destination="KoP-Tg-WPD" kind="show" identifier="Siparisiceriksegue" id="GXT-gC-LyO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L19-7v-pQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -618,22 +629,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressCell" rowHeight="159" id="rD9-9S-Nbn" customClass="AddressTableViewCell" customModule="FirebaseSmsOnay" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="159"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressCell" rowHeight="192" id="rD9-9S-Nbn" customClass="AddressTableViewCell" customModule="FirebaseSmsOnay" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="192"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rD9-9S-Nbn" id="bwo-MQ-Mlq">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="158.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="191.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQy-K0-8JC">
-                                            <rect key="frame" x="16" y="7" width="343" height="146"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQy-K0-8JC">
+                                            <rect key="frame" x="0.0" y="11" width="326" height="120"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="131" id="XfT-Qt-eYy"/>
+                                                <constraint firstAttribute="width" constant="343" id="ife-6O-ExG"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="SQy-K0-8JC" secondAttribute="bottom" constant="49.5" id="8Gy-uQ-eVR"/>
+                                        <constraint firstItem="SQy-K0-8JC" firstAttribute="leading" secondItem="bwo-MQ-Mlq" secondAttribute="leading" constant="16" id="EVI-Ob-EN7"/>
+                                        <constraint firstItem="SQy-K0-8JC" firstAttribute="top" secondItem="bwo-MQ-Mlq" secondAttribute="top" constant="11" id="WGC-vR-ogB"/>
+                                        <constraint firstAttribute="trailing" secondItem="SQy-K0-8JC" secondAttribute="trailing" constant="33" id="qD1-xC-pHL"/>
+                                        <constraint firstAttribute="trailing" secondItem="SQy-K0-8JC" secondAttribute="trailing" constant="33" id="xAr-Uw-HFe"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="SQy-K0-8JC" secondAttribute="bottom" constant="50" id="WY1-zo-zvm"/>
+                                    <constraint firstAttribute="trailing" secondItem="SQy-K0-8JC" secondAttribute="trailing" constant="16" id="ZRp-An-A7X"/>
+                                    <constraint firstItem="SQy-K0-8JC" firstAttribute="top" secondItem="rD9-9S-Nbn" secondAttribute="top" constant="11" id="oP9-gX-eCu"/>
+                                    <constraint firstItem="SQy-K0-8JC" firstAttribute="leading" secondItem="rD9-9S-Nbn" secondAttribute="leading" constant="16" id="qM1-jE-jGm"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="label_address" destination="SQy-K0-8JC" id="hzU-Dh-JFf"/>
                                 </connections>
@@ -647,7 +674,89 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guI-Ns-RYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4262" y="564"/>
+
+            <point key="canvasLocation" x="4280.8000000000002" y="425.93703148425789"/>
+        </scene>
+        <!--Save Address View Controller-->
+        <scene sceneID="Eu9-GN-DgU">
+            <objects>
+                <viewController storyboardIdentifier="SaveAddressStoryboard" id="8gY-Kz-bEE" customClass="SaveAddressViewController" customModule="FirebaseSmsOnay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ebn-dA-4ka">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ülke" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i9I-Ir-Yi5">
+                                <rect key="frame" x="22" y="119" width="331" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İl" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2E9-Qg-Vgx">
+                                <rect key="frame" x="22" y="175" width="331" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İlçe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dTW-fg-0Cg">
+                                <rect key="frame" x="22" y="235" width="331" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres Adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inG-W1-iYz">
+                                <rect key="frame" x="28" y="61" width="331" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Posta Kodu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-5t-sDv">
+                                <rect key="frame" x="16" y="354" width="331" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sjp-bN-bvt">
+                                <rect key="frame" x="22" y="268" width="331" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0w3-uN-cwb">
+                                <rect key="frame" x="51" y="412" width="217" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.81581032276153564" green="0.94509404897689819" blue="0.94719952344894409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Kaydet">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.81581032276153564" green="0.94509404897689819" blue="0.94719952344894409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SaveAddressbtn:" destination="8gY-Kz-bEE" eventType="touchUpInside" id="nh7-et-6pD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ib7-2U-ZRv"/>
+                    </view>
+                    <connections>
+                        <outlet property="AddressCity" destination="2E9-Qg-Vgx" id="HS4-1u-Xe7"/>
+                        <outlet property="AddressCountry" destination="i9I-Ir-Yi5" id="UdW-RU-0TN"/>
+                        <outlet property="AddressCounty" destination="dTW-fg-0Cg" id="Twa-S3-SBP"/>
+                        <outlet property="AddressFullAddress" destination="Sjp-bN-bvt" id="7to-4q-fsW"/>
+                        <outlet property="AddressPostCode" destination="rxD-5t-sDv" id="wjY-iW-oyD"/>
+                        <outlet property="Addresstitle" destination="inG-W1-iYz" id="1ik-iN-a9w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xT7-ki-q4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5077.6000000000004" y="488.00599700149928"/>
+
         </scene>
         <!--Uptade Pinfo View Controller-->
         <scene sceneID="1cM-ez-jcl">
@@ -979,7 +1088,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GeK-Rw-Ru2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2609" y="1362"/>
+
+            <point key="canvasLocation" x="2631" y="1376"/>
+
         </scene>
         <!--Siparis Table View Controller-->
         <scene sceneID="j7k-up-F37">
@@ -1123,6 +1234,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="knn-Km-b3I"/>
+
+        <segue reference="GXT-gC-LyO"/>
+
     </inferredMetricsTieBreakers>
 </document>
