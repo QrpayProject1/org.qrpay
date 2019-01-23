@@ -70,8 +70,8 @@ class SignUpViewController: UIViewController {
                 print(user.User_Email)
             
             }else{
-                let alert = UIAlertController(title: "Email", message: "Mail adresinizi doğru giriniz", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+                let alert = UIAlertController(title: "Email", message: "Mail adresinizi doğru giriniz", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -128,14 +128,15 @@ class SignUpViewController: UIViewController {
             case .success(let value):
                 let json=JSON(value)
                 print(json)
-                if json.count>0
+                if json["cr_error"] != "Hatalı"
                 {
+                    self.sendConfirmMail()
                     let storyboard=UIStoryboard(name: "Main", bundle: nil)
                     let vc=storyboard.instantiateViewController(withIdentifier: "LoginVc")
                     self.present(vc,animated: true,completion: nil);
                 }else {
-                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
                 }
@@ -148,7 +149,29 @@ class SignUpViewController: UIViewController {
         }
     
     }
+    
+    
+    func sendConfirmMail()
+    {
+        let url="http://qrparam.net/User_Credentials/SendConfirmMail/?User_Email="+TF_mail.text!
+        let correctURL=url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        Alamofire.request(correctURL!,method: .get).validate().responseJSON{
+            response in
 
+            switch(response.result){
+                
+            case .success(let value):
+                
+                print("Başarılı")
+                
+            case .failure(let error):
+                
+                print(error)
+    
+                
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
