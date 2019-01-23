@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     @IBAction func btn_login(_ sender: Any) {
         
        login()
+        
     }
     
     override func viewDidLoad() {
@@ -67,9 +68,18 @@ user.User_Password="aaaa"
  
                     print(json["User_Email"].stringValue)
                     UserDefaults.standard.set(self.user.User_ID , forKey: "isLogin")
-                    let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomeViewController
-                      self.performSegue(withIdentifier: "HomePageSegue", sender: self)
+                    if json["Email_Confirm"].stringValue=="Aktif"{
+                        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomeViewController
+                        self.performSegue(withIdentifier: "HomePageSegue", sender: self)
+                    }
+                    else{
+                        let alert = UIAlertController(title:"Hata", message:"Mail Aktivasyonunuzu Gerçekleştirmeniz Gerekiyor",preferredStyle: .alert)
+                        let action = UIAlertAction(title: "Tamam", style: .default)
+                        alert.addAction(action)
+                        self.present(alert,animated: true,completion: nil)
+                    }
+                 
                     
                 }
                 else{
