@@ -29,9 +29,7 @@ class QrOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
        
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("orderlistcount\(orderList.count)")
@@ -43,6 +41,8 @@ class QrOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! QrOrderViewControllerTableViewCell
         
+        
+        print("orderlist\(orderList[indexPath.row].Order_Product_Name)")
         cell.label_productcode.text=String(orderList[indexPath.row].Order_Code)
         cell.label_paytype.text=orderList[indexPath.row].Order_Payment_Method
         cell.label_ordername.text=orderList[indexPath.row].Order_Product_Name
@@ -50,8 +50,8 @@ class QrOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.label_totalprice.text=String(orderList[indexPath.row].Order_Total_Price)
         cell.viewcell.layer.cornerRadius=5
         cell.viewcell.layer.borderWidth=2
-        cell.viewcell.layer.borderColor=UIColor.darkGray as! CGColor
-        cell.viewcell.layer.backgroundColor=UIColor.gray.withAlphaComponent(0.5) as! CGColor
+        cell.viewcell.layer.borderColor=UIColor.darkGray.cgColor
+        cell.viewcell.layer.backgroundColor=UIColor.gray.withAlphaComponent(0.5).cgColor
        
         
         return cell
@@ -65,7 +65,7 @@ class QrOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let url = "http://qrparam.net/User_Order_Info/AnlikSiparis/?Order_Code="+String(Order_Code)
         let correcrURL = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-        
+        print("url\(url)")
         
         Alamofire.request(correcrURL!,method:.get).validate().responseJSON{
             response in
@@ -77,7 +77,7 @@ class QrOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 let json=JSON(value)
                
                 print("jsoncount\(json.count)")
-                for index in 0..<json.count{
+                for index in 0..<json["list"].count{
                     
                     var UserorderInfoİcerik = User_Order_Info()
                     UserorderInfoİcerik.Order_ID=json["list"][index]["Order_ID"].intValue
@@ -98,12 +98,12 @@ class QrOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     UserorderInfoİcerik.Order_Web_Site=json["list"][index]["Order_Web_Site"].stringValue
                     print("Userordericerik\(UserorderInfoİcerik.Address_Title)")
                     self.orderList.append(UserorderInfoİcerik)
-                    
+                   
                 }
                 
-                
-                //self.tableview.reloadData()
-          
+                  self.tableview.reloadData()
+               
+          print("reload")
             case .failure(let error):
                 
                 print("bağlantı hatası")
