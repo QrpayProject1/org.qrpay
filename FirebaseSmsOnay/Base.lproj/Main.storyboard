@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8gY-Kz-bEE">
-
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8gY-Kz-bEE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,6 +47,61 @@
             </objects>
             <point key="canvasLocation" x="1352.8" y="-75.112443778110944"/>
         </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="jMK-rS-O1k">
+            <objects>
+                <viewController id="Mfp-c3-B1S" customClass="PaymentViewController" customModule="FirebaseSmsOnay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xwo-v4-PoE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfv-0c-ytt">
+                                <rect key="frame" x="10" y="70" width="356" height="50"/>
+                                <color key="backgroundColor" red="0.61474085300000003" green="0.89561529200000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Amc-Nb-imq"/>
+                                </constraints>
+                                <state key="normal" title="Kredi Kartı Seçimi">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn_chooseCard:" destination="Mfp-c3-B1S" eventType="touchUpInside" id="qqM-Wt-RLy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sk-3J-feV">
+                                <rect key="frame" x="10" y="128" width="356" height="50"/>
+                                <color key="backgroundColor" red="0.61474085300000003" green="0.89561529200000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4Pf-TL-lDd"/>
+                                </constraints>
+                                <state key="normal" title="Adres Seçimi">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn_chooseAddress:" destination="Mfp-c3-B1S" eventType="touchUpInside" id="tGX-5m-ix3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VUw-ze-9qp" firstAttribute="trailing" secondItem="lfv-0c-ytt" secondAttribute="trailing" constant="9" id="4bb-Yp-an5"/>
+                            <constraint firstItem="VUw-ze-9qp" firstAttribute="trailing" secondItem="9Sk-3J-feV" secondAttribute="trailing" constant="9" id="Apg-Ey-o8F"/>
+                            <constraint firstItem="9Sk-3J-feV" firstAttribute="top" secondItem="lfv-0c-ytt" secondAttribute="bottom" constant="8" id="iw6-bD-cio"/>
+                            <constraint firstItem="lfv-0c-ytt" firstAttribute="leading" secondItem="VUw-ze-9qp" secondAttribute="leading" constant="10" id="riC-pD-yBp"/>
+                            <constraint firstItem="9Sk-3J-feV" firstAttribute="leading" secondItem="VUw-ze-9qp" secondAttribute="leading" constant="10" id="uzL-BH-v7X"/>
+                            <constraint firstItem="lfv-0c-ytt" firstAttribute="top" secondItem="VUw-ze-9qp" secondAttribute="top" constant="50" id="zVS-Ho-u4J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VUw-ze-9qp"/>
+                    </view>
+                    <connections>
+                        <outlet property="btn_addressChoose" destination="9Sk-3J-feV" id="YRw-gk-pDb"/>
+                        <outlet property="btn_cardchoose" destination="lfv-0c-ytt" id="XlF-Cs-XHl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ga8-Ha-tJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-110" y="331"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="lWF-6P-JHH">
             <objects>
@@ -64,18 +117,14 @@
                                 <color key="textColor" red="1" green="0.18155876470000001" blue="0.1477498444" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sadifeyildirimm@gmail.com" borderStyle="roundedRect" placeholder="Kullanıcı Adı" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OeT-ee-9uq">
-
                                 <rect key="frame" x="70" y="142" width="192" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ss.11" borderStyle="roundedRect" placeholder="Şifre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XD-Cn-Waq">
-
                                 <rect key="frame" x="70" y="180" width="192" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -394,6 +443,122 @@
             </objects>
             <point key="canvasLocation" x="3305" y="588"/>
         </scene>
+        <!--Save Credit Card Controller-->
+        <scene sceneID="emt-zM-N5Q">
+            <objects>
+                <viewController id="qwx-pA-6Rn" customClass="SaveCreditCardController" customModule="FirebaseSmsOnay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AoN-om-IaL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kart İsmi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPd-19-OhZ">
+                                <rect key="frame" x="99" y="122" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kartın Üzerindeki İsim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbT-wr-kGX">
+                                <rect key="frame" x="0.0" y="170" width="167" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kart Numarası" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7V-wm-Wjv">
+                                <rect key="frame" x="58" y="214" width="109" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Son Kullanım Tarihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTZ-Br-kn7">
+                                <rect key="frame" x="23" y="267" width="144" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Güvenlik Kodu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eu-K5-2V9">
+                                <rect key="frame" x="57" y="314" width="110" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9GY-Tm-3df">
+                                <rect key="frame" x="204" y="119" width="155" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uYp-5O-HeD">
+                                <rect key="frame" x="204" y="167" width="155" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CnS-G0-qMY">
+                                <rect key="frame" x="204" y="209" width="155" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <action selector="entry_cardNumber:" destination="qwx-pA-6Rn" eventType="editingChanged" id="09R-J7-pjW"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-rK-aKH">
+                                <rect key="frame" x="204" y="262" width="155" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="entry_lastdate:" destination="qwx-pA-6Rn" eventType="editingChanged" id="ROG-Xp-j5j"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Sa-tE-jya">
+                                <rect key="frame" x="204" y="309" width="155" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfF-40-8su">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="zNF-uW-Czw"/>
+                                </constraints>
+                                <state key="normal" title="Kaydet"/>
+                                <connections>
+                                    <action selector="btn_saveCard:" destination="qwx-pA-6Rn" eventType="touchUpInside" id="db4-8H-db1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qfF-40-8su" firstAttribute="leading" secondItem="ipP-Kf-FrH" secondAttribute="leading" id="E6m-Rw-KmP"/>
+                            <constraint firstItem="ipP-Kf-FrH" firstAttribute="bottom" secondItem="qfF-40-8su" secondAttribute="bottom" id="aIb-Uz-KCh"/>
+                            <constraint firstItem="ipP-Kf-FrH" firstAttribute="trailing" secondItem="qfF-40-8su" secondAttribute="trailing" id="qvT-if-bZu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ipP-Kf-FrH"/>
+                    </view>
+                    <connections>
+                        <outlet property="btn_saveCard" destination="qfF-40-8su" id="OgD-ux-eCq"/>
+                        <outlet property="textfield_cardName" destination="9GY-Tm-3df" id="eRJ-Ws-5F5"/>
+                        <outlet property="textfield_cardNumber" destination="CnS-G0-qMY" id="rlr-u4-d0p"/>
+                        <outlet property="textfield_date" destination="Qfg-rK-aKH" id="NNC-Cn-lgI"/>
+                        <outlet property="textfield_nameOnCard" destination="9GY-Tm-3df" id="uwb-aa-ZAV"/>
+                        <outlet property="textfield_securityCode" destination="4Sa-tE-jya" id="OHq-OF-IeF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFb-60-5Ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="490" y="1021"/>
+        </scene>
         <!--Qr Order View Controller-->
         <scene sceneID="agg-Wk-6BU">
             <objects>
@@ -553,6 +718,9 @@
                                 <state key="normal" title="Onayla">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Mfp-c3-B1S" kind="show" id="rXc-BK-LKs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -573,7 +741,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZT-X6-9O9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1293.5999999999999" y="698.5007496251875"/>
+            <point key="canvasLocation" x="1353" y="773"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="9d1-oy-O3t">
@@ -674,7 +842,6 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guI-Ns-RYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="4280.8000000000002" y="425.93703148425789"/>
         </scene>
         <!--Save Address View Controller-->
@@ -707,28 +874,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres Adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inG-W1-iYz">
-                                <rect key="frame" x="28" y="61" width="331" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Posta Kodu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-5t-sDv">
-                                <rect key="frame" x="16" y="354" width="331" height="30"/>
+                                <rect key="frame" x="22" y="66" width="331" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sjp-bN-bvt">
-                                <rect key="frame" x="22" y="268" width="331" height="71"/>
+                                <rect key="frame" x="22" y="287" width="331" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0w3-uN-cwb">
-                                <rect key="frame" x="51" y="412" width="217" height="51"/>
+                                <rect key="frame" x="85" y="450" width="217" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.81581032276153564" green="0.94509404897689819" blue="0.94719952344894409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -740,6 +900,13 @@
                                     <action selector="SaveAddressbtn:" destination="8gY-Kz-bEE" eventType="touchUpInside" id="nh7-et-6pD"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Posta Kodu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-5t-sDv">
+                                <rect key="frame" x="22" y="390" width="331" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ib7-2U-ZRv"/>
@@ -755,8 +922,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xT7-ki-q4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5077.6000000000004" y="488.00599700149928"/>
-
+            <point key="canvasLocation" x="5302" y="492"/>
         </scene>
         <!--Uptade Pinfo View Controller-->
         <scene sceneID="1cM-ez-jcl">
@@ -1088,9 +1254,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GeK-Rw-Ru2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="2631" y="1376"/>
-
         </scene>
         <!--Siparis Table View Controller-->
         <scene sceneID="j7k-up-F37">
@@ -1230,12 +1394,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aot-yM-Har" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1776.8" y="1360.569715142429"/>
+            <point key="canvasLocation" x="1863" y="1554"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-
         <segue reference="GXT-gC-LyO"/>
-
+        <segue reference="knn-Km-b3I"/>
     </inferredMetricsTieBreakers>
 </document>
