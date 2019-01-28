@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var btn_uptadeAddress: UIButton!
     @IBAction func btn_updateAddress(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "sequeaddress", sender: self)
+        self.performSegue(withIdentifier: "Adreslistele", sender: self)
         
     }
     
@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+      
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,7 +45,7 @@ class SettingsViewController: UIViewController {
             guard let vc = segue.destination as? UptadePinfoViewController else {return}
             vc.user = self.user
         }
-        else if segue.identifier == "sequeaddress"{
+        else if segue.identifier == "Adreslistele"{
             guard let vc = segue.destination as? AddressTableViewController else {return}
             vc.userID=user.User_ID
         }

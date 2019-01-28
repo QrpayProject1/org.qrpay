@@ -36,6 +36,8 @@
 		499D1ECE21D363C4009B1B69 /* User_Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D1ECD21D363C4009B1B69 /* User_Credentials.swift */; };
 		499D1ED021D363C8009B1B69 /* User_Order_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D1ECF21D363C8009B1B69 /* User_Order_Info.swift */; };
 		499D1ED221D363CD009B1B69 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D1ED121D363CD009B1B69 /* QRViewController.swift */; };
+		49D0D6CE21FF1A4700775EC8 /* SaveAddresssViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D6CD21FF1A4700775EC8 /* SaveAddresssViewController.swift */; };
+		49D0D6D021FF1FB200775EC8 /* SaveAddresssTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D6CF21FF1FB200775EC8 /* SaveAddresssTableViewCell.swift */; };
 		49E0224321D63FED00E85A85 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0224221D63FED00E85A85 /* TableViewController.swift */; };
 		49E0224521D63FF200E85A85 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0224421D63FF200E85A85 /* TableViewCell.swift */; };
 		73EDB93DB1453C5F6813E9B6 /* Pods_FirebaseSmsOnayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BDE21D2C7D34BD9D22A0C0 /* Pods_FirebaseSmsOnayTests.framework */; };
@@ -100,6 +102,8 @@
 		499D1ECD21D363C4009B1B69 /* User_Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User_Credentials.swift; sourceTree = "<group>"; };
 		499D1ECF21D363C8009B1B69 /* User_Order_Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User_Order_Info.swift; sourceTree = "<group>"; };
 		499D1ED121D363CD009B1B69 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		49D0D6CD21FF1A4700775EC8 /* SaveAddresssViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAddresssViewController.swift; sourceTree = "<group>"; };
+		49D0D6CF21FF1FB200775EC8 /* SaveAddresssTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAddresssTableViewCell.swift; sourceTree = "<group>"; };
 		49E0224221D63FED00E85A85 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		49E0224421D63FF200E85A85 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6687AD86CFCA8FB305356641 /* Pods-FirebaseSmsOnay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseSmsOnay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseSmsOnay/Pods-FirebaseSmsOnay.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 				396268B621EDBD800008D8CE /* SettingsViewController.swift */,
 				396268B821EDC0CE0008D8CE /* UptadePinfoViewController.swift */,
 				396268BA21EDCFB70008D8CE /* PasswordChangeViewController.swift */,
+				49D0D6CD21FF1A4700775EC8 /* SaveAddresssViewController.swift */,
+				49D0D6CF21FF1FB200775EC8 /* SaveAddresssTableViewCell.swift */,
 				396268C221EE11280008D8CE /* AddressTableViewController.swift */,
 				396268C021EE0FAB0008D8CE /* AddressTableViewCell.swift */,
 				399937C021F739E4007B8092 /* QrOrderViewController.swift */,
@@ -471,6 +477,7 @@
 				499D1ECE21D363C4009B1B69 /* User_Credentials.swift in Sources */,
 				4954F15221CCDD7A00E539D5 /* ViewController.swift in Sources */,
 				39EF48DB21F8A46200E154E6 /* SaveCreditCardController.swift in Sources */,
+				49D0D6D021FF1FB200775EC8 /* SaveAddresssTableViewCell.swift in Sources */,
 				49E0224321D63FED00E85A85 /* TableViewController.swift in Sources */,
 				39A49B0821FEFBB30065710A /* CreditCard.swift in Sources */,
 				399937C121F739E4007B8092 /* QrOrderViewController.swift in Sources */,
@@ -479,6 +486,7 @@
 				499D1EC821D360F5009B1B69 /* SignUpViewController.swift in Sources */,
 				396268BB21EDCFB70008D8CE /* PasswordChangeViewController.swift in Sources */,
 				399937C321F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift in Sources */,
+				49D0D6CE21FF1A4700775EC8 /* SaveAddresssViewController.swift in Sources */,
 				499D1ECA21D3624D009B1B69 /* LoginViewController.swift in Sources */,
 				493EF81E21F5A994001FD902 /* SiparisTableViewCell.swift in Sources */,
 				49E0224521D63FF200E85A85 /* TableViewCell.swift in Sources */,

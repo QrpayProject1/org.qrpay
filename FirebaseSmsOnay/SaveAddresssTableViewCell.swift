@@ -1,17 +1,17 @@
 //
-//  AddressTableViewCell.swift
+//  SaveAddresssTableViewCell.swift
 //  FirebaseSmsOnay
 //
-//  Created by imac1 on 15.01.2019.
+//  Created by imac2 on 1/28/19.
 //  Copyright © 2019 imac2. All rights reserved.
 //
 
 import UIKit
 
-class AddressTableViewCell: UITableViewCell {
+class SaveAddresssTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var label_address: UILabel!
     
+    @IBOutlet weak var viewcell: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

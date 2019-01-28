@@ -41,9 +41,9 @@ class AddressTableViewController: UITableViewController {
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell", for: indexPath) as? AddressTableViewCell
-         let string=addressList[indexPath.row].Address_Title+"\n"+addressList[indexPath.row].Address_Country
-        let string1=addressList[indexPath.row].Address_County+"\n"+addressList[indexPath.row].Address_City
-        let string2=addressList[indexPath.row].Address_Full_Address+"\n"+String(addressList[indexPath.row].Address_Post_Code)
+         let string=addressList[indexPath.row].Address_Title+addressList[indexPath.row].Address_Country
+        let string1=addressList[indexPath.row].Address_County+addressList[indexPath.row].Address_City
+        let string2=addressList[indexPath.row].Address_Full_Address+String(addressList[indexPath.row].Address_Post_Code)
         cell?.label_address.text = string+string1+string2
         print("sonadres..\(cell?.label_address.text)")
         

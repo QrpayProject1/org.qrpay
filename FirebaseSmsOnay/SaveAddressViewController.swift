@@ -97,8 +97,8 @@ class SaveAddressViewController: UIViewController {
                 if json.count>0
                 {
                    
-                    let alert = UIAlertController(title: "Başarılı", message: "Adresiniz Kaydedilmiştir", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+                    let alert = UIAlertController(title: "Başarılı", message: "Adresiniz Kaydedilmiştir", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
                 }
