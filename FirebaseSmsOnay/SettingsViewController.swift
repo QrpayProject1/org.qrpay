@@ -18,6 +18,11 @@ class SettingsViewController: UIViewController {
         
     }
     
+    @IBAction func btn_register_CreditCard(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "segueRegCard", sender: self)
+    
+    }
     @IBAction func btn_uptadeinfo(_ sender: Any) {
         
        self.performSegue(withIdentifier: "UpdatePinfo", sender: self)
@@ -42,6 +47,10 @@ class SettingsViewController: UIViewController {
         }
         else if segue.identifier == "Adreslistele"{
             guard let vc = segue.destination as? AddressTableViewController else {return}
+            vc.userID=user.User_ID
+        }
+        else if segue.identifier == "segueRegCard"{
+            guard let vc = segue.destination as? SaveCreditCardController else{return}
             vc.userID=user.User_ID
         }
         
