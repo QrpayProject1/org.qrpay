@@ -84,7 +84,7 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
                     self.addressList.append(address)
                     
                 }
-                
+                print("gfgyudytdrdrtsas")
                 self.tableview.reloadData()
                 
                 }else{
