@@ -106,6 +106,7 @@ class SignUpViewController: UIViewController {
                 
                 let passwordTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
                 return passwordTest.evaluate(with: password)
+                
             }
             if  isValidPassword(password:password){
             user.User_Password=password
@@ -165,8 +166,8 @@ class SignUpViewController: UIViewController {
                     let vc=storyboard.instantiateViewController(withIdentifier: "LoginVc")
                     self.present(vc,animated: true,completion: nil);
                 }else {
-                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
                 }

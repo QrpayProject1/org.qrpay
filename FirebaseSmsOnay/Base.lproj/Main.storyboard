@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8gY-Kz-bEE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8gY-Kz-bEE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352.8" y="-75.112443778110944"/>
+            <point key="canvasLocation" x="1070" y="-143"/>
         </scene>
         <!--Payment View Controller-->
         <scene sceneID="jMK-rS-O1k">
@@ -101,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ga8-Ha-tJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-300" y="182"/>
+            <point key="canvasLocation" x="-775" y="110"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="lWF-6P-JHH">
@@ -170,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8F-PH-Kmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="628" y="-75"/>
+            <point key="canvasLocation" x="126" y="-97"/>
         </scene>
         <!--Verification View Controller-->
         <scene sceneID="f8S-g5-6lm">
@@ -212,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEp-ua-pgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2173.5999999999999" y="-75.112443778110944"/>
+            <point key="canvasLocation" x="2186" y="-192"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="DSu-Rm-q6V">
@@ -375,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REO-lk-3Sk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3265" y="-75"/>
+            <point key="canvasLocation" x="3258" y="-318"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="dfe-Uv-cLJ">
@@ -453,7 +452,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L19-7v-pQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2351" y="648"/>
+            <point key="canvasLocation" x="902" y="549"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oLT-pP-U6g">
@@ -467,14 +466,11 @@
                     </view>
                     <connections>
                         <segue destination="NV8-qv-FRC" kind="show" identifier="shoppingbox" id="knn-Km-b3I"/>
-                        <segue destination="NV8-qv-FRC" kind="show" id="cQn-gR-i5P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWC-24-OFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-
-            <point key="canvasLocation" x="3636" y="412"/>
-
+            <point key="canvasLocation" x="4369" y="-44"/>
         </scene>
         <!--Save Credit Card Controller-->
         <scene sceneID="emt-zM-N5Q">
@@ -593,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFb-60-5Ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2626" y="2169"/>
+            <point key="canvasLocation" x="743" y="2319"/>
         </scene>
         <!--Qr Order View Controller-->
         <scene sceneID="agg-Wk-6BU">
@@ -777,9 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZT-X6-9O9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-
-            <point key="canvasLocation" x="1294" y="804"/>
-
+            <point key="canvasLocation" x="1151" y="1383"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="9d1-oy-O3t">
@@ -812,7 +806,6 @@
                                     <action selector="btn_updateAddress:" destination="9Vl-vI-P6i" eventType="touchUpInside" id="2Ry-cg-LP4"/>
                                 </connections>
                             </button>
-
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPD-Jh-20o">
                                 <rect key="frame" x="34" y="338" width="213" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -822,7 +815,6 @@
                                 <state key="normal" title="Yeni Adres"/>
                                 <connections>
                                     <action selector="SavenewAddress:" destination="9Vl-vI-P6i" eventType="touchUpInside" id="p4o-5z-wyy"/>
-
                                 </connections>
                             </button>
                         </subviews>
@@ -832,14 +824,12 @@
                     <connections>
                         <outlet property="btn_uptadeAddress" destination="5lH-TW-LA7" id="fYx-LZ-9zj"/>
                         <segue destination="aiQ-e0-9t2" kind="show" identifier="UpdatePinfo" id="9jE-Bm-51Y"/>
-
                         <segue destination="gtw-Ed-Rqy" kind="show" identifier="Addresslistele" id="qc2-Cc-b8J"/>
-
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6a0-HG-HEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4650" y="788"/>
+            <point key="canvasLocation" x="4433" y="1199"/>
         </scene>
         <!--Address Listele View Controller-->
         <scene sceneID="1mZ-g3-6tb">
@@ -855,8 +845,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="609" id="1v2-FB-lYn"/>
                                 </constraints>
-
-
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="227" id="aKO-pU-daT" customClass="AddressListeleTableViewCell" customModule="FirebaseSmsOnay" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="227"/>
@@ -941,9 +929,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pzM-HF-FHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SlX-Sq-lKT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-
-            <point key="canvasLocation" x="3612" y="2019.0404797601202"/>
-
+            <point key="canvasLocation" x="6230" y="516"/>
         </scene>
         <!--Save Address View Controller-->
         <scene sceneID="Eu9-GN-DgU">
@@ -1023,9 +1009,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xT7-ki-q4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-
-            <point key="canvasLocation" x="4607" y="2019"/>
-
+            <point key="canvasLocation" x="3687" y="2122"/>
         </scene>
         <!--Uptade Pinfo View Controller-->
         <scene sceneID="1cM-ez-jcl">
@@ -1357,7 +1341,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GeK-Rw-Ru2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3801" y="1625"/>
+            <point key="canvasLocation" x="2857" y="1790"/>
         </scene>
         <!--Siparis Table View Controller-->
         <scene sceneID="j7k-up-F37">
@@ -1497,7 +1481,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aot-yM-Har" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863" y="1554"/>
+            <point key="canvasLocation" x="1582" y="2265"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7CF-1W-nrF">
@@ -1512,12 +1496,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9V-0p-cfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-300" y="862"/>
+            <point key="canvasLocation" x="-774" y="1234"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="GXT-gC-LyO"/>
-        <segue reference="cQn-gR-i5P"/>
-        <segue reference="mfq-aF-zky"/>
     </inferredMetricsTieBreakers>
 </document>

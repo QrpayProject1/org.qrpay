@@ -20,6 +20,7 @@
 		493EF82021F5ABD5001FD902 /* User_Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81F21F5ABD5001FD902 /* User_Address.swift */; };
 		4940EBBF21F7052400536471 /* SaveAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940EBBE21F7052400536471 /* SaveAddressViewController.swift */; };
 		49484E9621D219D200019080 /* verificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49484E9521D219D200019080 /* verificationViewController.swift */; };
+		495060932201890C000B490B /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495060922201890C000B490B /* CreditCard.swift */; };
 		4954F15021CCDD7A00E539D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954F14F21CCDD7A00E539D5 /* AppDelegate.swift */; };
 		4954F15221CCDD7A00E539D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954F15121CCDD7A00E539D5 /* ViewController.swift */; };
 		4954F15521CCDD7A00E539D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4954F15321CCDD7A00E539D5 /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		493EF81F21F5ABD5001FD902 /* User_Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User_Address.swift; sourceTree = "<group>"; };
 		4940EBBE21F7052400536471 /* SaveAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAddressViewController.swift; sourceTree = "<group>"; };
 		49484E9521D219D200019080 /* verificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verificationViewController.swift; sourceTree = "<group>"; };
+		495060922201890C000B490B /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		4954F14C21CCDD7900E539D5 /* FirebaseSmsOnay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseSmsOnay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4954F14F21CCDD7A00E539D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4954F15121CCDD7A00E539D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				4954F14D21CCDD7900E539D5 /* Products */,
 				FFF89EEF99405AAAA865DE8B /* Pods */,
 				B199ACEF5F8E80D46EF8442C /* Frameworks */,
+				49AA43732201830400DCB347 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,6 +173,7 @@
 				499D1EC721D360F5009B1B69 /* SignUpViewController.swift */,
 				499D1ECF21D363C8009B1B69 /* User_Order_Info.swift */,
 				493EF81F21F5ABD5001FD902 /* User_Address.swift */,
+				495060922201890C000B490B /* CreditCard.swift */,
 				4954F15121CCDD7A00E539D5 /* ViewController.swift */,
 				499D1ED121D363CD009B1B69 /* QRViewController.swift */,
 				499D1ECB21D3633F009B1B69 /* HomeViewController.swift */,
@@ -187,10 +191,8 @@
 				399937C221F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift */,
 				39EF48DA21F8A46200E154E6 /* SaveCreditCardController.swift */,
 				391140B321F9A9B700575B47 /* PaymentViewController.swift */,
-
 				49D16F592200391B00B60AF3 /* AddressListeleViewController.swift */,
 				49D16F5B22003AFE00B60AF3 /* AddressListeleTableViewCell.swift */,
-
 				4954F15621CCDD8D00E539D5 /* Assets.xcassets */,
 				4954F15821CCDD8D00E539D5 /* LaunchScreen.storyboard */,
 				4954F15B21CCDD8D00E539D5 /* Info.plist */,
@@ -215,6 +217,14 @@
 				4954F17121CCDD8D00E539D5 /* Info.plist */,
 			);
 			path = FirebaseSmsOnayUITests;
+			sourceTree = "<group>";
+		};
+		49AA43732201830400DCB347 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				39A49B0721FEFBB30065710A /* CreditCard.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		B199ACEF5F8E80D46EF8442C /* Frameworks */ = {
@@ -491,6 +501,7 @@
 				391140B421F9A9B700575B47 /* PaymentViewController.swift in Sources */,
 				4954F15021CCDD7A00E539D5 /* AppDelegate.swift in Sources */,
 				499D1ECC21D3633F009B1B69 /* HomeViewController.swift in Sources */,
+				495060932201890C000B490B /* CreditCard.swift in Sources */,
 				396268B721EDBD800008D8CE /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
