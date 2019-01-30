@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var btn_uptadeAddress: UIButton!
     @IBAction func btn_updateAddress(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "Adreslistele", sender: self)
+        self.performSegue(withIdentifier: "Addresslistele", sender: self)
         
     }
     
@@ -26,6 +26,14 @@ class SettingsViewController: UIViewController {
     @IBAction func btn_uptadeinfo(_ sender: Any) {
         
        self.performSegue(withIdentifier: "UpdatePinfo", sender: self)
+        
+    }
+    
+    
+    @IBAction func SavenewAddress(_ sender: Any) {
+        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SaveAddressStoryboard") as! SaveAddressViewController
+        self.present(vc, animated: true, completion: nil)
         
     }
     override func viewDidLoad() {
@@ -45,8 +53,8 @@ class SettingsViewController: UIViewController {
             guard let vc = segue.destination as? UptadePinfoViewController else {return}
             vc.user = self.user
         }
-        else if segue.identifier == "Adreslistele"{
-            guard let vc = segue.destination as? AddressTableViewController else {return}
+        else if segue.identifier == "Addresslistele"{
+            guard let vc = segue.destination as? AddressListeleViewController else {return}
             vc.userID=user.User_ID
         }
         else if segue.identifier == "segueRegCard"{
