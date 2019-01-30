@@ -1,88 +1,76 @@
 //
-//  SiparisTableViewController.swift
+//  OrderdetailViewController.swift
 //  FirebaseSmsOnay
 //
-//  Created by imac2 on 1/14/19.
+//  Created by imac2 on 1/30/19.
 //  Copyright © 2019 imac2. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import SwiftyJSON
-class SiparisTableViewController: UITableViewController {
-  // var user4 = User_Order_Info()
+class OrderdetailViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource{
+    
     var UserorderInfoİceriklist = [User_Order_Info]();
     var UserOrderInfoAddresslist = [User_Address]();
-     var user3 = User_Credentials()
+    var user3 = User_Credentials()
     let navigationBar=0;
     let address:String=""
-    var labell:UILabel=UILabel()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getData2();
-        
-        
-       print("userıdson...\(user3.User_ID)")
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+    // var labell:UILabel=UILabel()
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
- 
-   
-    }
+    
+    @IBOutlet weak var Lbl_adres: UILabel!
+    @IBOutlet weak var tableview: UITableView!
+    
+    
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-       
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    override func tableView(_ tableView:UITableView,viewForHeaderInSection section: Int)
-        -> UIView? {
-     
-            let view = UIView()
-           // let labell=UILabel()
-            let firstFrame = CGRect(x: 0, y: 0, width:tableView.frame.width, height: 100)
-           
-           // view.backgroundColor=UIColor.orange
-            labell.backgroundColor=UIColor.orange
-            labell.frame = firstFrame
-            labell.numberOfLines = 0
-            view.addSubview(labell)
-           // view.addSubview(label2)
-            return view
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UserorderInfoİceriklist.count;
     }
     
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // #warning Incomplete implementation, return the number of rows
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SiparisMainCell", for: indexPath) as! SiparisTableViewCell
-        print("listecount \(UserorderInfoİceriklist.count)")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OrderdetailTableViewCell
         
         
-        print("cellname\(UserorderInfoİceriklist[indexPath.row].Order_Product_Name)")
-        cell.OrderCode.text=String(UserorderInfoİceriklist[indexPath.row].Order_Code);
-        cell.OrderProductName.text=UserorderInfoİceriklist[indexPath.row].Order_Product_Name;
-        cell.OrderUnitPrice.text=String(UserorderInfoİceriklist[indexPath.row].Order_Unit_Price);
-        cell.OrderPaymentMethod.text=UserorderInfoİceriklist[indexPath.row].Order_Payment_Method;
-        cell.OrderTotalPrice.text=String(UserorderInfoİceriklist[indexPath.row].Order_Total_Price);
+        print("listecount2 \(UserorderInfoİceriklist.count)")
+        
+      
+        print ("title\(UserorderInfoİceriklist[indexPath.row].Order_Web_Site)")
+        
+        cell.ordercode.text=String(UserorderInfoİceriklist[indexPath.row].Order_Code);
+        cell.orderproductname.text=UserorderInfoİceriklist[indexPath.row].Order_Product_Name;
+        cell.orderunitprice.text=String(UserorderInfoİceriklist[indexPath.row].Order_Unit_Price);
+        cell.orderpaymentmethod.text=UserorderInfoİceriklist[indexPath.row].Order_Payment_Method;
+        cell.ordertotalprıce.text=String(UserorderInfoİceriklist[indexPath.row].Order_Total_Price);
+        
+        
+        cell.viewcell.layer.cornerRadius=5
+        cell.viewcell.layer.borderWidth=2
+        cell.viewcell.layer.borderColor=UIColor.darkGray.cgColor
+        cell.viewcell.layer.backgroundColor=UIColor.gray.withAlphaComponent(0.5).cgColor
+        
         
         
         return cell
     }
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getData2();
+        self.tableview.delegate=self
+        self.tableview.dataSource=self
+        // Do any additional setup after loading the view.
+    }
+   
     func getData2(){
-         let ordercode=UserDefaults.standard.string(forKey: "ordercode")
+        let ordercode=UserDefaults.standard.string(forKey: "ordercode")
         let userıd=UserDefaults.standard.string(forKey: "userıd")
-        print("orderdegeri....\(ordercode)")
+        print("orderdegeri....\(userıd)")
         let UserorderInfoİcerik = User_Order_Info()
         let UserorderInfoAddress = User_Address()
         Alamofire.request("http://qrparam.net/User_Order_Info/GecmisSiparislerIcerik/?Order_Code="+ordercode!+"&User_ID="+userıd!, method: .get).validate().responseJSON { response in
@@ -91,10 +79,10 @@ class SiparisTableViewController: UITableViewController {
                 let json = JSON(value)
                 
                 if json.count > 0{
-                   
-                
+                    
+                    
                     print(json)
-                    for index in 0..<json.count-1{
+                    for index in 0..<json["list"].count-1{
                         print("index \(index)")
                         
                         UserorderInfoİcerik.Order_ID=json["list"][index]["Order_ID"].intValue
@@ -121,27 +109,29 @@ class SiparisTableViewController: UITableViewController {
                         UserorderInfoAddress.Address_Post_Code=json["addr"][index]["Address_Post_Code"].intValue
                         UserorderInfoAddress.Address_Full_Address=json["addr"][index]["Address_Full_Address"].stringValue
                         UserorderInfoAddress.Address_Invoice_Type=json["addr"][index]["Address_Invoice_Type"].stringValue
-        
+                        
                         self.UserorderInfoİceriklist.append(UserorderInfoİcerik)
                         self.UserOrderInfoAddresslist.append(UserorderInfoAddress)
                         // var User_ID:Int = 0
                         print("orderıd..\(UserorderInfoİcerik.Order_ID)")
-                        print(UserorderInfoİcerik.Order_Product_Name)
-                      // let address=UserorderInfoİceriklist.Address_Title
-                     //   print("içerde\(address)")
+                        
+                        //   print("içerde\(address)")
                         print("adress..\(self.UserOrderInfoAddresslist[0].Address_Title)")
                         
                     }
                     
                     let string1=self.UserOrderInfoAddresslist[0].Address_Title
                     let string2=self.UserOrderInfoAddresslist[0].Address_Full_Address
-                    let string3=self.UserOrderInfoAddresslist[0].Address_County+"/"+self.UserOrderInfoAddresslist[0].Address_City+"/"+self.UserOrderInfoAddresslist[0].Address_Country
+                    let string3=self.UserOrderInfoAddresslist[0].Address_County+self.UserOrderInfoAddresslist[0].Address_City+self.UserOrderInfoAddresslist[0].Address_Country
                     let string4=self.UserOrderInfoAddresslist[0].Address_Post_Code
                     print("string..\(string4)")
-                    self.labell.text="Adres Başlığı:"+string1+"\n"+"Adress:"+string2+"\n"+string3+"/"+String(string4)
+                    self.Lbl_adres.text="Adres Başlığı:"+string1+"Adress:"+string2+string3+String(string4)
+                    print("label...\(self.Lbl_adres.text)")
                     //string1+string2+string3+String(string4)
-                    self.tableView.reloadData();
                     
+                    self.tableview.reloadData();
+                    print(self.UserorderInfoİceriklist[0].Order_Product_Name)
+                    // let address=UserorderInfoİceriklist.Address_Title
                 }
             case .failure(let error):
                 print(error)
@@ -149,5 +139,6 @@ class SiparisTableViewController: UITableViewController {
             
         }
     }
-
+    
 }
+

@@ -48,7 +48,7 @@ class TableViewController: UITableViewController {
         
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let controller = storyboard.instantiateViewController(withIdentifier: "SiparisDetay") as! SiparisTableViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: "SiparisDetay1") as! OrderdetailViewController
         
 
             self.navigationController?.pushViewController(controller, animated: true)

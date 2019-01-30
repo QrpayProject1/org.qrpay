@@ -15,11 +15,13 @@
 		399937C321F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399937C221F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift */; };
 		39A49B0821FEFBB30065710A /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A49B0721FEFBB30065710A /* CreditCard.swift */; };
 		39EF48DB21F8A46200E154E6 /* SaveCreditCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF48DA21F8A46200E154E6 /* SaveCreditCardController.swift */; };
-		493EF81C21F5A98C001FD902 /* SiparisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */; };
-		493EF81E21F5A994001FD902 /* SiparisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */; };
 		493EF82021F5ABD5001FD902 /* User_Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81F21F5ABD5001FD902 /* User_Address.swift */; };
 		4940EBBF21F7052400536471 /* SaveAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940EBBE21F7052400536471 /* SaveAddressViewController.swift */; };
 		49484E9621D219D200019080 /* verificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49484E9521D219D200019080 /* verificationViewController.swift */; };
+		495060A22201901E000B490B /* Credit_Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495060A12201901E000B490B /* Credit_Card.swift */; };
+		495060A62201BBAD000B490B /* OrderdetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495060A52201BBAD000B490B /* OrderdetailViewController.swift */; };
+		495060A82201BC6F000B490B /* OrderdetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495060A72201BC6F000B490B /* OrderdetailTableViewCell.swift */; };
+		495060AA2201D100000B490B /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495060A92201D100000B490B /* OrderTableViewCell.swift */; };
 		4954F15021CCDD7A00E539D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954F14F21CCDD7A00E539D5 /* AppDelegate.swift */; };
 		4954F15221CCDD7A00E539D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954F15121CCDD7A00E539D5 /* ViewController.swift */; };
 		4954F15521CCDD7A00E539D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4954F15321CCDD7A00E539D5 /* Main.storyboard */; };
@@ -72,11 +74,13 @@
 		399937C221F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrOrderViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		39A49B0721FEFBB30065710A /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		39EF48DA21F8A46200E154E6 /* SaveCreditCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCreditCardController.swift; sourceTree = "<group>"; };
-		493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiparisTableViewController.swift; sourceTree = "<group>"; };
-		493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiparisTableViewCell.swift; sourceTree = "<group>"; };
 		493EF81F21F5ABD5001FD902 /* User_Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User_Address.swift; sourceTree = "<group>"; };
 		4940EBBE21F7052400536471 /* SaveAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAddressViewController.swift; sourceTree = "<group>"; };
 		49484E9521D219D200019080 /* verificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verificationViewController.swift; sourceTree = "<group>"; };
+		495060A12201901E000B490B /* Credit_Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit_Card.swift; sourceTree = "<group>"; };
+		495060A52201BBAD000B490B /* OrderdetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderdetailViewController.swift; sourceTree = "<group>"; };
+		495060A72201BC6F000B490B /* OrderdetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderdetailTableViewCell.swift; sourceTree = "<group>"; };
+		495060A92201D100000B490B /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		4954F14C21CCDD7900E539D5 /* FirebaseSmsOnay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseSmsOnay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4954F14F21CCDD7A00E539D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4954F15121CCDD7A00E539D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		495060A022018FEB000B490B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				39A49B0721FEFBB30065710A /* CreditCard.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		4954F14321CCDD7900E539D5 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +159,7 @@
 				4954F14D21CCDD7900E539D5 /* Products */,
 				FFF89EEF99405AAAA865DE8B /* Pods */,
 				B199ACEF5F8E80D46EF8442C /* Frameworks */,
+				495060A022018FEB000B490B /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,12 +185,14 @@
 				493EF81F21F5ABD5001FD902 /* User_Address.swift */,
 				4954F15121CCDD7A00E539D5 /* ViewController.swift */,
 				499D1ED121D363CD009B1B69 /* QRViewController.swift */,
+				495060A12201901E000B490B /* Credit_Card.swift */,
 				499D1ECB21D3633F009B1B69 /* HomeViewController.swift */,
 				499D1EC921D3624D009B1B69 /* LoginViewController.swift */,
 				49484E9521D219D200019080 /* verificationViewController.swift */,
 				4940EBBE21F7052400536471 /* SaveAddressViewController.swift */,
-				493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */,
-				493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */,
+				495060A52201BBAD000B490B /* OrderdetailViewController.swift */,
+				495060A72201BC6F000B490B /* OrderdetailTableViewCell.swift */,
+				495060A92201D100000B490B /* OrderTableViewCell.swift */,
 				49E0224221D63FED00E85A85 /* TableViewController.swift */,
 				49E0224421D63FF200E85A85 /* TableViewCell.swift */,
 				396268B621EDBD800008D8CE /* SettingsViewController.swift */,
@@ -187,10 +202,8 @@
 				399937C221F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift */,
 				39EF48DA21F8A46200E154E6 /* SaveCreditCardController.swift */,
 				391140B321F9A9B700575B47 /* PaymentViewController.swift */,
-
 				49D16F592200391B00B60AF3 /* AddressListeleViewController.swift */,
 				49D16F5B22003AFE00B60AF3 /* AddressListeleTableViewCell.swift */,
-
 				4954F15621CCDD8D00E539D5 /* Assets.xcassets */,
 				4954F15821CCDD8D00E539D5 /* LaunchScreen.storyboard */,
 				4954F15B21CCDD8D00E539D5 /* Info.plist */,
@@ -467,8 +480,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493EF81C21F5A98C001FD902 /* SiparisTableViewController.swift in Sources */,
 				49484E9621D219D200019080 /* verificationViewController.swift in Sources */,
+				495060A62201BBAD000B490B /* OrderdetailViewController.swift in Sources */,
 				499D1ECE21D363C4009B1B69 /* User_Credentials.swift in Sources */,
 				49D16F5C22003AFE00B60AF3 /* AddressListeleTableViewCell.swift in Sources */,
 				49D16F5A2200391B00B60AF3 /* AddressListeleViewController.swift in Sources */,
@@ -478,18 +491,20 @@
 				39A49B0821FEFBB30065710A /* CreditCard.swift in Sources */,
 				399937C121F739E4007B8092 /* QrOrderViewController.swift in Sources */,
 				493EF82021F5ABD5001FD902 /* User_Address.swift in Sources */,
+				495060A82201BC6F000B490B /* OrderdetailTableViewCell.swift in Sources */,
 				4940EBBF21F7052400536471 /* SaveAddressViewController.swift in Sources */,
 				499D1EC821D360F5009B1B69 /* SignUpViewController.swift in Sources */,
 				396268BB21EDCFB70008D8CE /* PasswordChangeViewController.swift in Sources */,
+				495060A22201901E000B490B /* Credit_Card.swift in Sources */,
 				399937C321F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift in Sources */,
 				499D1ECA21D3624D009B1B69 /* LoginViewController.swift in Sources */,
-				493EF81E21F5A994001FD902 /* SiparisTableViewCell.swift in Sources */,
 				49E0224521D63FF200E85A85 /* TableViewCell.swift in Sources */,
 				499D1ED221D363CD009B1B69 /* QRViewController.swift in Sources */,
 				499D1ED021D363C8009B1B69 /* User_Order_Info.swift in Sources */,
 				396268B921EDC0CE0008D8CE /* UptadePinfoViewController.swift in Sources */,
 				391140B421F9A9B700575B47 /* PaymentViewController.swift in Sources */,
 				4954F15021CCDD7A00E539D5 /* AppDelegate.swift in Sources */,
+				495060AA2201D100000B490B /* OrderTableViewCell.swift in Sources */,
 				499D1ECC21D3633F009B1B69 /* HomeViewController.swift in Sources */,
 				396268B721EDBD800008D8CE /* SettingsViewController.swift in Sources */,
 			);

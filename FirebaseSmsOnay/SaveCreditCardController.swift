@@ -19,7 +19,7 @@ class SaveCreditCardController: UIViewController {
     @IBOutlet weak var textfield_date: UITextField!
     @IBOutlet weak var textfield_securityCode: UITextField!
     @IBOutlet weak var btn_saveCard: UIButton!
-    let creditCard=Credit_Card()
+    let creditCard=CreditCard()
     var userID=0
     var control=true
     var charcounter=0
@@ -133,7 +133,7 @@ class SaveCreditCardController: UIViewController {
             case .success(let value):
                  print("Kayıt Başarılı")
                  print(correctURL)
-                 let alert = UIAlertController(title: "Başarılı", message: "Kredi kaydı işlemi başarı bir şekilde gerçekleşti", preferredStyle: UIAlertControllerStyle.alert)
+                 let alert = UIAlertController(title: "Başarılı", message: "Kredi kaydı işlemi başarı bir şekilde gerçekleşti", preferredStyle: UIAlertController.Style.alert)
                  alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: { action in
                    self.dismissVc()
                  }))
