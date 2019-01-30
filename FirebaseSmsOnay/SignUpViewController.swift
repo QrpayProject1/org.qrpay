@@ -70,8 +70,8 @@ class SignUpViewController: UIViewController {
                 print(user.User_Email)
             
             }else{
-                let alert = UIAlertController(title: "Email", message: "Mail adresinizi doğru giriniz", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+                let alert = UIAlertController(title: "Email", message: "Mail adresinizi doğru giriniz", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -135,8 +135,8 @@ class SignUpViewController: UIViewController {
                     let vc=storyboard.instantiateViewController(withIdentifier: "LoginVc")
                     self.present(vc,animated: true,completion: nil);
                 }else {
-                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
                 }

@@ -21,28 +21,67 @@ class SaveCreditCardController: UIViewController {
     @IBOutlet weak var btn_saveCard: UIButton!
     let creditCard=Credit_Card()
     var userID=0
-    
+    var control=true
+    var charcounter=0
+    var spacecounter=0
+    var textcard=""
     @IBAction func entry_cardNumber(_ sender: Any) {
         
+        if (textfield_cardNumber.text?.count)!<20{
+            textcard=textfield_cardNumber.text!
+        if((textfield_cardNumber.text?.count)!>charcounter){
+         print("yukarı")
+            charcounter+=1
+            if charcounter%4==spacecounter&&charcounter<19{
+                textfield_cardNumber.text=textfield_cardNumber.text!+" "
+                spacecounter+=1
+                charcounter+=1
+            }
+            
+        }
+        else{
+            charcounter-=1
+            if(charcounter%5==0&&charcounter>0){
+                spacecounter-=1
+               
+            }
+        }
         
-        
+      print("\(charcounter)----\(spacecounter)")
+        }
+        else{
+            textfield_cardNumber.text=textcard
+        }
     }
+    
     @IBAction func btn_saveCard(_ sender: Any) {
         
-        
+        setupCreditCard()
+        SaveCardRequest()
     }
     
     @IBAction func entry_lastdate(_ sender: Any) {
         
-        if textfield_date.text?.count==2{
+        if textfield_date.text?.count==2&&control{
             textfield_date.text=textfield_date.text!+"/"
+        }
+        else if (textfield_date.text?.count)!>2{
+            control = false
+        }
+        else if (textfield_date.text?.count)!<2{
+            control = true
+        }
+        else if(textfield_date.text?.count)!>=7{
+            
+            textfield_date.text=String((textfield_date.text?.prefix(7))!)
+            
         }
        
        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
         
     }
 
@@ -93,6 +132,13 @@ class SaveCreditCardController: UIViewController {
                 
             case .success(let value):
                  print("Kayıt Başarılı")
+                 print(correctURL)
+                 let alert = UIAlertController(title: "Başarılı", message: "Kredi kaydı işlemi başarı bir şekilde gerçekleşti", preferredStyle: UIAlertControllerStyle.alert)
+                 alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: { action in
+                   self.dismissVc()
+                 }))
+                 self.present(alert,animated:true,completion: nil )
+                let value=JSON(value)
             case .failure(let error):
                  print(error)
             }
@@ -104,6 +150,21 @@ class SaveCreditCardController: UIViewController {
         
     }
     
+    func dismissVc(){
+        self.dismiss(animated: true, completion: nil)
+    }
    
 
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8gY-Kz-bEE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8gY-Kz-bEE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,7 +57,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfv-0c-ytt">
                                 <rect key="frame" x="10" y="70" width="356" height="50"/>
-                                <color key="backgroundColor" red="0.61474085300000003" green="0.89561529200000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Amc-Nb-imq"/>
                                 </constraints>
@@ -81,7 +82,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.42159588516831126" green="0.25278706836044496" blue="0.69917422279792751" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="VUw-ze-9qp" firstAttribute="trailing" secondItem="lfv-0c-ytt" secondAttribute="trailing" constant="9" id="4bb-Yp-an5"/>
                             <constraint firstItem="VUw-ze-9qp" firstAttribute="trailing" secondItem="9Sk-3J-feV" secondAttribute="trailing" constant="9" id="Apg-Ey-o8F"/>
@@ -95,11 +96,12 @@
                     <connections>
                         <outlet property="btn_addressChoose" destination="9Sk-3J-feV" id="YRw-gk-pDb"/>
                         <outlet property="btn_cardchoose" destination="lfv-0c-ytt" id="XlF-Cs-XHl"/>
+                        <segue destination="qwx-pA-6Rn" kind="show" identifier="seguebackregcard" id="mfq-aF-zky"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ga8-Ha-tJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1079" y="343"/>
+            <point key="canvasLocation" x="-300" y="182"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="lWF-6P-JHH">
@@ -168,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8F-PH-Kmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="576.79999999999995" y="55.322338830584712"/>
+            <point key="canvasLocation" x="628" y="-75"/>
         </scene>
         <!--Verification View Controller-->
         <scene sceneID="f8S-g5-6lm">
@@ -357,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REO-lk-3Sk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2936.8000000000002" y="-71.514242878560722"/>
+            <point key="canvasLocation" x="3265" y="-75"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="dfe-Uv-cLJ">
@@ -454,12 +456,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWC-24-OFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3305" y="588"/>
+            <point key="canvasLocation" x="3698" y="725"/>
         </scene>
         <!--Save Credit Card Controller-->
         <scene sceneID="emt-zM-N5Q">
             <objects>
-                <viewController id="qwx-pA-6Rn" customClass="SaveCreditCardController" customModule="FirebaseSmsOnay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegCreditCard" id="qwx-pA-6Rn" customClass="SaveCreditCardController" customModule="FirebaseSmsOnay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AoN-om-IaL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -513,16 +515,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CnS-G0-qMY">
-                                <rect key="frame" x="204" y="209" width="155" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
-                                <connections>
-                                    <action selector="entry_cardNumber:" destination="qwx-pA-6Rn" eventType="editingChanged" id="09R-J7-pjW"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qfg-rK-aKH">
                                 <rect key="frame" x="204" y="262" width="155" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -542,14 +534,27 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfF-40-8su">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" red="0.61474085300000003" green="0.89561529200000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="zNF-uW-Czw"/>
                                 </constraints>
-                                <state key="normal" title="Kaydet"/>
+                                <state key="normal" title="Kaydet">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="btn_saveCard:" destination="qwx-pA-6Rn" eventType="touchUpInside" id="db4-8H-db1"/>
+                                    <action selector="btn_saveCard:" destination="qwx-pA-6Rn" eventType="touchUpInside" id="UWU-mc-pQK"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CnS-G0-qMY">
+                                <rect key="frame" x="204" y="210" width="155" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <action selector="entry_cardNumber:" destination="qwx-pA-6Rn" eventType="editingChanged" id="99V-9q-xL8"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -570,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFb-60-5Ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="490" y="1021"/>
+            <point key="canvasLocation" x="2626" y="2169"/>
         </scene>
         <!--Qr Order View Controller-->
         <scene sceneID="agg-Wk-6BU">
@@ -754,7 +759,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZT-X6-9O9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="773"/>
+            <point key="canvasLocation" x="1470" y="718"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="9d1-oy-O3t">
@@ -803,14 +808,13 @@
                         <outlet property="btn_uptadeAddress" destination="5lH-TW-LA7" id="fYx-LZ-9zj"/>
                         <segue destination="aiQ-e0-9t2" kind="show" identifier="UpdatePinfo" id="9jE-Bm-51Y"/>
                         <segue destination="1zP-3I-rMK" kind="show" identifier="sequeaddress" id="G1c-1c-PZC"/>
-
                         <segue destination="PiC-gT-NuR" kind="show" identifier="Adreslistele" id="YKf-KY-M3N"/>
-
+                        <segue destination="qwx-pA-6Rn" kind="show" identifier="segueRegCard" id="6Wy-aV-hNB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6a0-HG-HEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3352.8000000000002" y="1298.5007496251876"/>
+            <point key="canvasLocation" x="4650" y="788"/>
         </scene>
         <!--Address Table View Controller-->
         <scene sceneID="Yiy-tX-UaQ">
@@ -871,7 +875,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guI-Ns-RYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4005.5999999999999" y="429.53523238380814"/>
+            <point key="canvasLocation" x="4402" y="-72"/>
         </scene>
         <!--Save Addresss View Controller-->
         <scene sceneID="EqW-vG-wX3">
@@ -923,7 +927,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijG-2M-oAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4736.8000000000002" y="303.59820089955025"/>
+            <point key="canvasLocation" x="5316" y="-72"/>
         </scene>
         <!--Save Address View Controller-->
         <scene sceneID="Eu9-GN-DgU">
@@ -1003,7 +1007,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xT7-ki-q4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5542" y="430"/>
+            <point key="canvasLocation" x="6217" y="-75"/>
         </scene>
         <!--Uptade Pinfo View Controller-->
         <scene sceneID="1cM-ez-jcl">
@@ -1106,7 +1110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Wf-tR-vX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4248.8000000000002" y="1298.5007496251876"/>
+            <point key="canvasLocation" x="5815" y="1358"/>
         </scene>
         <!--Password Change View Controller-->
         <scene sceneID="ftC-A8-w3x">
@@ -1186,7 +1190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oO-Qy-Kno" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5029.6000000000004" y="1298.5007496251876"/>
+            <point key="canvasLocation" x="4967" y="2042"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="YAZ-Xo-tCC">
@@ -1335,7 +1339,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GeK-Rw-Ru2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2631" y="1376"/>
+            <point key="canvasLocation" x="3801" y="1625"/>
         </scene>
         <!--Siparis Table View Controller-->
         <scene sceneID="j7k-up-F37">
@@ -1485,14 +1489,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="M2q-Va-c1z"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9V-0p-cfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-300" y="862"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="S5e-0p-x4r"/>
         <segue reference="cQn-gR-i5P"/>
+        <segue reference="mfq-aF-zky"/>
     </inferredMetricsTieBreakers>
 </document>
