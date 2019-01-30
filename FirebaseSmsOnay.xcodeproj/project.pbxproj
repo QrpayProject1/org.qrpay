@@ -13,6 +13,7 @@
 		396268BB21EDCFB70008D8CE /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396268BA21EDCFB70008D8CE /* PasswordChangeViewController.swift */; };
 		399937C121F739E4007B8092 /* QrOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399937C021F739E4007B8092 /* QrOrderViewController.swift */; };
 		399937C321F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399937C221F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift */; };
+		39A49B0821FEFBB30065710A /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A49B0721FEFBB30065710A /* CreditCard.swift */; };
 		39EF48DB21F8A46200E154E6 /* SaveCreditCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF48DA21F8A46200E154E6 /* SaveCreditCardController.swift */; };
 		493EF81C21F5A98C001FD902 /* SiparisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */; };
 		493EF81E21F5A994001FD902 /* SiparisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */; };
@@ -69,6 +70,7 @@
 		396268BA21EDCFB70008D8CE /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
 		399937C021F739E4007B8092 /* QrOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrOrderViewController.swift; sourceTree = "<group>"; };
 		399937C221F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrOrderViewControllerTableViewCell.swift; sourceTree = "<group>"; };
+		39A49B0721FEFBB30065710A /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		39EF48DA21F8A46200E154E6 /* SaveCreditCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCreditCardController.swift; sourceTree = "<group>"; };
 		493EF81B21F5A98C001FD902 /* SiparisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiparisTableViewController.swift; sourceTree = "<group>"; };
 		493EF81D21F5A994001FD902 /* SiparisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiparisTableViewCell.swift; sourceTree = "<group>"; };
@@ -185,8 +187,10 @@
 				399937C221F746DA007B8092 /* QrOrderViewControllerTableViewCell.swift */,
 				39EF48DA21F8A46200E154E6 /* SaveCreditCardController.swift */,
 				391140B321F9A9B700575B47 /* PaymentViewController.swift */,
+
 				49D16F592200391B00B60AF3 /* AddressListeleViewController.swift */,
 				49D16F5B22003AFE00B60AF3 /* AddressListeleTableViewCell.swift */,
+
 				4954F15621CCDD8D00E539D5 /* Assets.xcassets */,
 				4954F15821CCDD8D00E539D5 /* LaunchScreen.storyboard */,
 				4954F15B21CCDD8D00E539D5 /* Info.plist */,
@@ -471,6 +475,7 @@
 				4954F15221CCDD7A00E539D5 /* ViewController.swift in Sources */,
 				39EF48DB21F8A46200E154E6 /* SaveCreditCardController.swift in Sources */,
 				49E0224321D63FED00E85A85 /* TableViewController.swift in Sources */,
+				39A49B0821FEFBB30065710A /* CreditCard.swift in Sources */,
 				399937C121F739E4007B8092 /* QrOrderViewController.swift in Sources */,
 				493EF82021F5ABD5001FD902 /* User_Address.swift in Sources */,
 				4940EBBF21F7052400536471 /* SaveAddressViewController.swift in Sources */,
