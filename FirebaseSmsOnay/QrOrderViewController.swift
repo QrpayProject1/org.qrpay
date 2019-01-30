@@ -14,7 +14,7 @@ class QrOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
    
    
     @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var tablecelll: QrOrderViewControllerTableViewCell!
+   
     var Order_Code=0
     var orderList = [User_Order_Info]()
 

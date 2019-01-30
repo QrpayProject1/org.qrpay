@@ -22,7 +22,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var TF_gender: UISegmentedControl!
     @IBOutlet weak var TF_birdth: UITextField!
     
+    @IBOutlet weak var MailBilgi_lbl: UILabel!
     
+    @IBOutlet weak var sifrebilgi_lbl: UILabel!
     @IBAction func btn_SignUp(_ sender: Any) {
         
         let user=getUserInfo();
@@ -32,6 +34,8 @@ class SignUpViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+         MailBilgi_lbl.isHidden=true
+        sifrebilgi_lbl.isHidden=true
       
         if(UserDefaults.standard.bool(forKey: "isSignUp")){
 
@@ -57,6 +61,7 @@ class SignUpViewController: UIViewController {
          if let birdth=TF_birdth.text {user.User_Birth_Date=birdth}
         
          if let mail=TF_mail.text {
+           
             // validate an email for the right format
                func isValidEmail(mail:String) -> Bool {
                 let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -70,9 +75,13 @@ class SignUpViewController: UIViewController {
                 print(user.User_Email)
             
             }else{
-                let alert = UIAlertController(title: "Email", message: "Mail adresinizi doğru giriniz", preferredStyle: UIAlertController.Style.alert)
+                
+                let alert = UIAlertController(title: "Email", message: "Mail adresinizi uygun formatta giriniz ", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+               
+             //   MailBilgi_lbl.isHidden=false
+               
             }
         }
        
@@ -89,9 +98,27 @@ class SignUpViewController: UIViewController {
           //  TF_password.becomeFirstResponder()
         }
         
-         if let password=TF_password.text {user.User_Password=password}
+         if let password=TF_password.text {
+            func isValidPassword(password:String?) -> Bool {
+                guard password != nil else { return false }
+                
+                let passwordTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
+                return passwordTest.evaluate(with: password)
+            }
+            if  isValidPassword(password:password){
+            user.User_Password=password
+                print("yeni..\(user.User_Password)")}
+            else{
+                sifrebilgi_lbl.isHidden=false
+            }
+            // print("şifre..\(user.User_Password)")
+        }
         
-        if let phonenumber=TF_phonenumber.text {user.User_Phone_Number=Int(phonenumber)!}
+        if let phonenumber=TF_phonenumber.text {
+           
+            user.User_Phone_Number=Int(phonenumber)!
+           
+        }
         
         if let gender:Int=TF_gender.selectedSegmentIndex{
             if gender==0
@@ -106,7 +133,8 @@ class SignUpViewController: UIViewController {
         return user;
     
     }
-    
+   
+
   
     func postUserJson(user:User_Credentials){
       print(user.User_Name)

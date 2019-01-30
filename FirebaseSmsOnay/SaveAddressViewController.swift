@@ -71,7 +71,12 @@ class SaveAddressViewController: UIViewController {
         return user;
         
     }
-    
+    func saveVc(){
+       /* let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "Addreslistele") as! AddressListeleViewController
+        self.present(vc, animated: true, completion: nil)*/
+         dismiss(animated: true, completion: nil)
+    }
     
     func postUserJson(user:User_Address){
         print(user.Address_County)
@@ -98,8 +103,9 @@ class SaveAddressViewController: UIViewController {
                 {
                    
                     let alert = UIAlertController(title: "Başarılı", message: "Adresiniz Kaydedilmiştir", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default,  handler: {action in self.saveVc()}))
                     self.present(alert, animated: true, completion: nil)
+                    
                     
                 }
             case .failure(let error):
@@ -110,5 +116,7 @@ class SaveAddressViewController: UIViewController {
         }
         
     }
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
