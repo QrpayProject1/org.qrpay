@@ -81,7 +81,10 @@ class TableViewController: UITableViewController {
     func getData(){
         print("siparişuserıd..\(user2.User_ID)")
         let UserorderInfo = User_Order_Info()
-        Alamofire.request("http://qrparam.net/User_Order_Info/GecmisSiparisler/?User_ID="+String(user2.User_ID), method: .get).validate().responseJSON { response in
+        let url="http://qrparam.net/User_Order_Info/GecmisSiparisler/?User_ID="+String(user2.User_ID)
+        let corecturl=url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        Alamofire.request(corecturl!, method: .get).validate().responseJSON { response in
+            print(corecturl)
             switch response.result {
             case .success(let value):
                 let json = JSON(value)

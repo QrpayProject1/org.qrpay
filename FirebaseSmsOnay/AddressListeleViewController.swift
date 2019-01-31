@@ -88,9 +88,9 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
                 self.tableview.reloadData()
                 
                 }else{
-                    let alert = UIAlertController(title: "", message: "Kayıtlı Adresiniz bulunmamaktadır.Adres Kaydetmek istermisiniz?", preferredStyle: UIAlertControllerStyle.alert)
-                      alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,  handler: {action in self.CancelAddress()}))
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default,  handler: {action in self.saveAdres()}))
+                    let alert = UIAlertController(title: "", message: "Kayıtlı Adresiniz bulunmamaktadır.Adres Kaydetmek istermisiniz?", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default,  handler: {action in self.CancelAddress()}))
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default,  handler: {action in self.saveAdres()}))
                    
                     self.present(alert, animated: true, completion: nil)
                 }
