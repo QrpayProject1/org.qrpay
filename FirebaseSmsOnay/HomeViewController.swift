@@ -11,10 +11,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var QrOpen: UIButton!
-
-   
-    @IBOutlet weak var btnSiparisler: UIButton!
+ 
+    
+    @IBOutlet weak var btn_qrRead: UIButton!
+    @IBOutlet weak var btn_orders: UIButton!
+    @IBOutlet weak var btn_settings: UIButton!
+    @IBOutlet weak var btn_address: UIButton!
+    
+    
     var user=User_Credentials()
     var value:String?
     var degisken=true;
@@ -49,6 +53,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
       
     super.viewDidLoad()
+        btn_orders.buttondesign()
+        btn_address.buttondesign()
+        btn_settings.buttondesign()
+        btn_qrRead.buttondesign()
         
          UserDefaults.standard.set(user.User_ID, forKey: "userıd")
         if UserDefaults.standard.value(forKey: "isLogin") != nil {

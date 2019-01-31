@@ -12,24 +12,68 @@ import SwiftyJSON
 import MessageUI
 
 class LoginViewController: UIViewController {
-
+    
+    var emailcontrol=false
+    var passwordcontrol=false
+    @IBAction func tf_email(_ sender: Any) {
+        if (tf_username.text?.count)!>0{
+            emailcontrol=true
+        }
+        else{
+            emailcontrol=false
+        }
+    }
+    
+    @IBAction func tf_passwordaction(_ sender: Any) {
+        if (tf_password.text?.count)!>=5{
+            passwordcontrol=true
+        }
+        else{
+            passwordcontrol=false
+        }
+    }
+    @IBOutlet weak var btn_sign: UIButton!
     @IBOutlet weak var tf_username: UITextField!
     @IBOutlet weak var label_mistake: UILabel!
     @IBOutlet weak var tf_password: UITextField!
     var user:User_Credentials = User_Credentials()
     var value2:String=""
     @IBAction func btn_login(_ sender: Any) {
-        
+        label_mistake.isHidden=true
+        if logincontrol(){
        login()
-        
+        }
     }
     
     override func viewDidLoad() {
+        btn_sign.buttondesign()
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
 user.User_Password="aaaa"
      
     }
 
+    func logincontrol()->Bool{
+        if(tf_username.text?.count)!>0{
+            if(tf_password.text?.count)!>=5{
+                return true
+            }
+            else{
+                label_mistake.text="Kullanıcı adı veya şifre hatalı"
+                label_mistake.isHidden=false
+                return false
+            }
+            
+        }
+        else{
+            label_mistake.isHidden=false
+            label_mistake.text="Kullanıcı adı veya şifre hatalı"
+            return false
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
        
@@ -83,15 +127,18 @@ user.User_Password="aaaa"
                     
                 }
                 else{
-                    self.label_mistake.isHidden = false;
-                  
-                   // self.performSegue(withIdentifier: "HomePageSegue", sender: self)
-
-                   // self.present(vc, animated: true, completion: nil)
+                    
+                   
+                    self.label_mistake.text="Kullanıcı adı veya şifre hatalı"
+                    self.label_mistake.isHidden=false
+                
                 }
                 
             case .failure(let error):
-                 self.label_mistake.isHidden = false;
+                let alert=UIAlertController(title: "Bağlantı Hatası", message: "Lütfen bilgilerinizi kontrol ederek tekrar giriş yapmayı deneyin", preferredStyle:UIAlertControllerStyle.alert)
+                let action=UIAlertAction(title: "Tamam", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert,animated:true,completion: nil )
                 print(error)
             }
 
@@ -115,3 +162,33 @@ user.User_Password="aaaa"
     }
 
 }
+
+extension UIButton{
+    
+    func buttondesign(){
+        
+        self.layer.cornerRadius=10
+        self.backgroundColor=UIColor(red: 144/255, green: 116/255, blue: 255/255, alpha: 1)
+        self.layer.borderColor=UIColor.purple.withAlphaComponent(0.8).cgColor
+        self.layer.borderWidth=2
+        self.layer.shadowColor=UIColor.purple.cgColor
+        self.layer.shadowRadius=4
+        self.layer.shadowOffset=CGSize(width: 0, height: 0)
+        self.layer.shadowOpacity=0.8
+    }
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+

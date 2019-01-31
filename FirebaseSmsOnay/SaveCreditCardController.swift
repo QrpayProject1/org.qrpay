@@ -13,6 +13,7 @@ import SwiftyJSON
 class SaveCreditCardController: UIViewController {
 
    
+    @IBOutlet weak var label_mistake: UILabel!
     @IBOutlet weak var textfield_nameOnCard: UITextField!
     @IBOutlet weak var textfield_cardName: UITextField!
     @IBOutlet weak var textfield_cardNumber: UITextField!
@@ -25,6 +26,17 @@ class SaveCreditCardController: UIViewController {
     var charcounter=0
     var spacecounter=0
     var textcard=""
+    var securitcode=""
+    var infoControl=true
+    @IBAction func securityCodeControl(_ sender: Any) {
+       
+        if (textfield_securityCode.text?.count)!>3{
+            textfield_securityCode.text=securitcode
+        }
+        else{
+             securitcode=textfield_securityCode.text!
+        }
+    }
     @IBAction func entry_cardNumber(_ sender: Any) {
         
         if (textfield_cardNumber.text?.count)!<20{
@@ -55,9 +67,12 @@ class SaveCreditCardController: UIViewController {
     }
     
     @IBAction func btn_saveCard(_ sender: Any) {
-        
+        infoControl=true
         setupCreditCard()
-        SaveCardRequest()
+        if infoControl{
+            SaveCardRequest()
+        }
+        
     }
     
     @IBAction func entry_lastdate(_ sender: Any) {
@@ -80,8 +95,10 @@ class SaveCreditCardController: UIViewController {
        
     }
     override func viewDidLoad() {
+       
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
     }
 
@@ -92,27 +109,77 @@ class SaveCreditCardController: UIViewController {
     
     func setupCreditCard(){
         
-        if String((textfield_cardNumber.text?.dropFirst(0))!)=="4"{
-            
-            creditCard.Card_Type="VISA"
-            
-        }
-            
-        else if String((textfield_cardNumber.text?.dropFirst(0))!)=="5"{
-            
-            creditCard.Card_Type="MASTER"
-            
-        }
-        creditCard.Card_CVV=textfield_securityCode.text!
-        creditCard.Card_Number=textfield_cardNumber.text!
-        creditCard.Card_Name=textfield_cardName.text!
-        creditCard.Credit_Card_Name=textfield_nameOnCard.text!
-        let cardDate = textfield_date.text?.split(separator: "/")
-        creditCard.Card_Exprition_Month=String(cardDate![0])
-        creditCard.Card_Exprition_Year=String(cardDate![1])
+        
+        if (textfield_cardName.text?.count)!>0{
+            creditCard.Card_Name=textfield_cardName.text!
+        } else{infoControl=false;
+            label_mistake.isHidden=false
+            label_mistake.text="Kart İsmi boş bırakılamaz"
+            return}
+        
+        
+        
+        if (textfield_nameOnCard.text?.count)!>0{
+            creditCard.Credit_Card_Name=textfield_nameOnCard.text!
+        }  else{infoControl=false;
+            label_mistake.isHidden=false
+            label_mistake.text="Kart Üzerindeki İsim boş bırakılamaz"
+            return}
+        
+        
+        
+        let cardnumber=textfield_cardNumber.text?.replacingOccurrences(of: " ", with: "")
+        
+        if cardnumber?.count==16{
+            if String((textfield_cardNumber.text?.dropFirst(0))!)=="4"{
+                
+                creditCard.Card_Type="VISA"
+                
+            }
+                
+            else if String((textfield_cardNumber.text?.dropFirst(0))!)=="5"{
+                
+                creditCard.Card_Type="MASTER"
+                
+            }
+            creditCard.Card_Number=cardnumber!
+        } else{infoControl=false;
+            label_mistake.isHidden=false
+            label_mistake.text="Kredi Kartı Numarası 16 Haneli Olmalıdır"
+            return}
+        
+        
+        
+        if (textfield_date.text?.count)!>6{
+            let cardDate = textfield_date.text?.split(separator: "/")
+            creditCard.Card_Exprition_Month=String(cardDate![0])
+            creditCard.Card_Exprition_Year=String(cardDate![1])
+        }else{infoControl=false;
+            label_mistake.isHidden=false
+            label_mistake.text="Son Kullanım Tarihi (gg/yyyy) şeklinde olmalıdır"
+            return}
+        
+        
+     
+        if(textfield_securityCode.text?.count==3){
+            creditCard.Card_CVV=textfield_securityCode.text!}
+        else{infoControl=false;
+            label_mistake.isHidden=false
+            label_mistake.text="Güvenlik Kodu 3 Haneli Olmalıdır"
+            return}
+        
+       
+       
+      
+      
+     
+        
+      
+    }
+    func dismissVc(){
+        self.navigationController?.popViewController(animated: true)
         
     }
-    
     func SaveCardRequest(){
     
         
@@ -133,11 +200,11 @@ class SaveCreditCardController: UIViewController {
             case .success(let value):
                  print("Kayıt Başarılı")
                  print(correctURL)
-                 let alert = UIAlertController(title: "Başarılı", message: "Kredi kaydı işlemi başarı bir şekilde gerçekleşti", preferredStyle: UIAlertController.Style.alert)
-                 alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: { action in
-                   self.dismissVc()
-                 }))
-                 self.present(alert,animated:true,completion: nil )
+                 let alert = UIAlertController(title: "Başarılı", message: "Kredi kaydı işlemi başarı bir şekilde gerçekleşti", preferredStyle: UIAlertControllerStyle.alert)
+                 alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default,  handler: {action in self.dismissVc()}))
+                 
+                 self.present(alert, animated: true, completion: nil)
+               
                 let value=JSON(value)
             case .failure(let error):
                  print(error)
@@ -150,9 +217,7 @@ class SaveCreditCardController: UIViewController {
         
     }
     
-    func dismissVc(){
-        self.dismiss(animated: true, completion: nil)
-    }
+  
    
 
 }

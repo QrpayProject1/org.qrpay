@@ -21,7 +21,7 @@ class PaymentViewController: UIViewController {
     
     //MARK Veriables
      var addressList=[User_Address]()
-     var cardList=[Credit_Card]()
+     var cardList=[CreditCard]()
      var scroolview=UIScrollView()
     
     
@@ -62,7 +62,7 @@ class PaymentViewController: UIViewController {
                     }
         }
         else {
-            let alert=UIAlertController(title: "Uyarı", message: "Kayıtlı kredi kartı bulunmamaktadır kredi kartı kaydetme sayfasına yönlendirilmek ister misiniz ?", preferredStyle: UIAlertController.Style.alert)
+            let alert=UIAlertController(title: "Uyarı", message: "Kayıtlı kredi kartı bulunmamaktadır kredi kartı kaydetme sayfasına yönlendirilmek ister misiniz ?", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Evet", style: .default, handler: { action in
                 self.goToRegCardVc()
             }))
@@ -131,7 +131,7 @@ class PaymentViewController: UIViewController {
     }
         
     }
-    func showScroolCreditCard(x:Int,y:Int,width:Int,list:[Credit_Card]){
+    func showScroolCreditCard(x:Int,y:Int,width:Int,list:[CreditCard]){
         
         scroolview=UIScrollView()
         scroolview.isHidden=false
@@ -183,7 +183,7 @@ class PaymentViewController: UIViewController {
                 print("CardJson\(json)")
                 
                 for i in 0..<json["card"].count{
-                    var creditCard=Credit_Card()
+                    var creditCard=CreditCard()
                     creditCard.Card_CVV=json["card"][i]["Card_CVV"].stringValue
                     creditCard.Card_Exprition_Month=json["card"][i]["Card_Exprition_Month"].stringValue
                     creditCard.Cards_ID=json["card"][i]["Cards_ID"].stringValue
