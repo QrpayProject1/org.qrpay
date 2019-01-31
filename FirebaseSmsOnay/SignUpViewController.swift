@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var TF_tc: UITextField!
     @IBOutlet weak var TF_name: UITextField!
@@ -24,23 +24,25 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var MailBilgi_lbl: UILabel!
     
-    @IBOutlet weak var sifrebilgi_lbl: UILabel!
+    
       let user=User_Credentials()
-    var UserInfoControl=true
+   var UserInfoControl=true
     @IBAction func btn_SignUp(_ sender: Any) {
+    UserInfoControl=true
+      getUserInfo()
         
-      
-        if UserInfoControl{
-              postUserJson(user: user)
+       if UserInfoControl{
+       
+         postUserJson(user: user)
         }
-      
+        
         
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
          MailBilgi_lbl.isHidden=true
-        sifrebilgi_lbl.isHidden=true
+        
       
         if(UserDefaults.standard.bool(forKey: "isSignUp")){
 
@@ -49,6 +51,25 @@ class SignUpViewController: UIViewController {
             self.present(vc,animated: true)
         }
     }
+   /* func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField.tag == 1{
+      print("öclx")
+        }else if textField.tag == 2{
+            UserInfoControl=false;
+            MailBilgi_lbl.isHidden=false
+            MailBilgi_lbl.text="İsminizi Boş Bırakamayınız"
+           
+        }else{
+          
+            UserInfoControl=false;
+            MailBilgi_lbl.isHidden=false
+            MailBilgi_lbl.text="Soyisminizi Boş Bırakmayınız"
+        }
+        
+        textField.resignFirstResponder()
+        return true
+    }*/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -58,56 +79,69 @@ class SignUpViewController: UIViewController {
     func getUserInfo() {
     
        
-       
-         if let tc=TF_tc.text { user.User_Credential_Number=Int(tc)!
-            
+        
+        if (TF_tc.text?.count)!>0
+        {let tc=TF_tc.text
+            user.User_Credential_Number=Int(tc!)!}
+        else{UserInfoControl=false;
+            MailBilgi_lbl.isHidden=false
+            MailBilgi_lbl.text="TC Boş Bırakamayınız"
+            return}
+      
+     
+        if (TF_name.text?.count)!>0 {
+            let name=TF_name.text
+            let upperString = name!.uppercased(with: Locale(identifier: "tr"))
+            user.User_Name=upperString
+            print(user.User_Name)
         }
-         else{return}
+        else{UserInfoControl=false;
+            MailBilgi_lbl.isHidden=false
+            MailBilgi_lbl.text="İsminizi Boş Bırakamayınız"
+            return}
         
-         if let birdth=TF_birdth.text {user.User_Birth_Date=birdth}
+        if (TF_surname.text?.count)!>0 {
+            let surname=TF_surname.text
+            let upperString1 = surname!.uppercased(with:Locale(identifier: "tr"))
+            user.User_Surname=upperString1
+            print(user.User_Surname)
+            //  TF_password.becomeFirstResponder()
+        }
+        else{UserInfoControl=false;
+            MailBilgi_lbl.isHidden=false
+            MailBilgi_lbl.text="Soyisminizi Boş Bırakmayınız"
+            return}
         
-         if let mail=TF_mail.text {
-           
+        if  (TF_mail.text?.count)!>0{
+            let mail=TF_mail.text
+            
             // validate an email for the right format
-               func isValidEmail(mail:String) -> Bool {
+            func isValidEmail(mail:String) -> Bool {
                 let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
                 
                 let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
                 return emailTest.evaluate(with: mail)
             }
-            if  isValidEmail(mail:mail){
-                user.User_Email=mail
+            if  isValidEmail(mail:mail!){
+                user.User_Email=mail!
                 print("dogru")
                 print(user.User_Email)
-            
-            }else{
-
                 
-                let alert = UIAlertController(title: "Email", message: "Mail adresinizi uygun formatta giriniz ", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
-
-                self.present(alert, animated: true, completion: nil)
-               
-             //   MailBilgi_lbl.isHidden=false
-               
+            }else{UserInfoControl=false;
+                
+                MailBilgi_lbl.isHidden=false
+                MailBilgi_lbl.text="mail formatında giriniz"
+                 return
             }
+        }else{
+            UserInfoControl=false;
+            MailBilgi_lbl.isHidden=false
+            MailBilgi_lbl.text="mail Boş bırakılamaz"
+             return
         }
-       
-         if let name=TF_name.text {
-            let upperString = name.uppercased(with: Locale(identifier: "tr"))
-            user.User_Name=upperString
-            print(user.User_Name)
-         }else{UserInfoControl=false;return}
         
-         if let surname=TF_surname.text {
-            let upperString1 = surname.uppercased(with:Locale(identifier: "tr"))
-            user.User_Surname=upperString1
-            print(user.User_Surname)
-          //  TF_password.becomeFirstResponder()
-        }
-        else{UserInfoControl=false;return}
-        
-         if let password=TF_password.text {
+        if  (TF_password.text?.count)!>0{
+            let password=TF_password.text
             func isValidPassword(password:String?) -> Bool {
                 guard password != nil else { return false }
                 
@@ -115,22 +149,38 @@ class SignUpViewController: UIViewController {
                 return passwordTest.evaluate(with: password)
             }
             if  isValidPassword(password:password){
-            user.User_Password=password
+                user.User_Password=password!
                 print("yeni..\(user.User_Password)")}
-            else{
-                sifrebilgi_lbl.isHidden=false
-            }
+        
+            
+            else{UserInfoControl=false;
+                MailBilgi_lbl.isHidden=false
+                MailBilgi_lbl.text="paswordu uygun formatta giriniz"
+                return}
             // print("şifre..\(user.User_Password)")
-        }
-        else{UserInfoControl=false;return}
+        } else{UserInfoControl=false;
+            MailBilgi_lbl.isHidden=false
+            MailBilgi_lbl.text="şifre boş bırakılamaz"
+            return}
         
-        if let phonenumber=TF_phonenumber.text {
-           
-            user.User_Phone_Number=Int(phonenumber)!
-           
-        }
-        else{UserInfoControl=false;return}
         
+        if (TF_phonenumber.text?.count)!>0{
+            let phonenumber=TF_phonenumber.text
+            user.User_Phone_Number=Int(phonenumber!)!
+           
+        }else{
+            UserInfoControl=false;
+            MailBilgi_lbl.isHidden=false
+            MailBilgi_lbl.text="Telefon Numarası Boş Bırakılamaz"
+            return
+        }
+        if (TF_birdth.text?.count)!>0
+        {let birdth=TF_birdth.text
+            user.User_Birth_Date=birdth!}
+       else{UserInfoControl=false;
+            MailBilgi_lbl.isHidden=false
+            MailBilgi_lbl.text="Doğum Tarihini boş Bırakamazsınız"
+            return}
         if let gender:Int=TF_gender.selectedSegmentIndex{
             if gender==0
             {
@@ -140,8 +190,11 @@ class SignUpViewController: UIViewController {
                 user.User_Gender="Kadın"
             }
         }
-        else{UserInfoControl=false;return}
-       
+        else{UserInfoControl=false;
+            MailBilgi_lbl.isHidden=false
+            MailBilgi_lbl.text="Cinsiyetinizi Seçiniz"
+            return}
+        return
     
     }
    
@@ -159,7 +212,7 @@ class SignUpViewController: UIViewController {
         
      let correctURL = totalurl.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         print(correctURL)
-        Alamofire.request(correctURL!,method: .get).validate().responseJSON{
+        Alamofire.request(correctURL!,method: .get).validate(statusCode: 200..<600).responseJSON{
             response in
             
             switch(response.result){

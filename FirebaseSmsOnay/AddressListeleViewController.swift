@@ -37,8 +37,8 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
         print("sonadres..\(cell?.adress_lbl.text)")
         cell!.viewcell.layer.cornerRadius=5
         cell!.viewcell.layer.borderWidth=2
-        cell!.viewcell.layer.borderColor=UIColor.darkGray.cgColor
-        cell!.viewcell.layer.backgroundColor=UIColor.gray.withAlphaComponent(0.5).cgColor
+        cell!.viewcell.layer.borderColor=UIColor(red: 144, green: 116, blue: 255, alpha: 1).cgColor
+        cell!.viewcell.layer.backgroundColor=UIColor(red: 144, green: 166, blue: 255, alpha: 0.5).cgColor
         
         return cell!
     }
