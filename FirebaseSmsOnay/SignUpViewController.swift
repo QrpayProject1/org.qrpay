@@ -25,10 +25,15 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var MailBilgi_lbl: UILabel!
     
     @IBOutlet weak var sifrebilgi_lbl: UILabel!
+      let user=User_Credentials()
+    var UserInfoControl=true
     @IBAction func btn_SignUp(_ sender: Any) {
         
-        let user=getUserInfo();
-        postUserJson(user: user)
+      
+        if UserInfoControl{
+              postUserJson(user: user)
+        }
+      
         
         
     }
@@ -50,13 +55,14 @@ class SignUpViewController: UIViewController {
     }
     
     
-    func getUserInfo() -> User_Credentials {
+    func getUserInfo() {
     
-        let user=User_Credentials()
+       
        
          if let tc=TF_tc.text { user.User_Credential_Number=Int(tc)!
             
         }
+         else{return}
         
          if let birdth=TF_birdth.text {user.User_Birth_Date=birdth}
         
@@ -77,8 +83,8 @@ class SignUpViewController: UIViewController {
             }else{
 
                 
-                let alert = UIAlertController(title: "Email", message: "Mail adresinizi uygun formatta giriniz ", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+                let alert = UIAlertController(title: "Email", message: "Mail adresinizi uygun formatta giriniz ", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
 
                 self.present(alert, animated: true, completion: nil)
                
@@ -91,7 +97,7 @@ class SignUpViewController: UIViewController {
             let upperString = name.uppercased(with: Locale(identifier: "tr"))
             user.User_Name=upperString
             print(user.User_Name)
-        }
+         }else{UserInfoControl=false;return}
         
          if let surname=TF_surname.text {
             let upperString1 = surname.uppercased(with:Locale(identifier: "tr"))
@@ -99,6 +105,7 @@ class SignUpViewController: UIViewController {
             print(user.User_Surname)
           //  TF_password.becomeFirstResponder()
         }
+        else{UserInfoControl=false;return}
         
          if let password=TF_password.text {
             func isValidPassword(password:String?) -> Bool {
@@ -115,12 +122,14 @@ class SignUpViewController: UIViewController {
             }
             // print("şifre..\(user.User_Password)")
         }
+        else{UserInfoControl=false;return}
         
         if let phonenumber=TF_phonenumber.text {
            
             user.User_Phone_Number=Int(phonenumber)!
            
         }
+        else{UserInfoControl=false;return}
         
         if let gender:Int=TF_gender.selectedSegmentIndex{
             if gender==0
@@ -131,8 +140,8 @@ class SignUpViewController: UIViewController {
                 user.User_Gender="Kadın"
             }
         }
-    
-        return user;
+        else{UserInfoControl=false;return}
+       
     
     }
    
@@ -165,8 +174,8 @@ class SignUpViewController: UIViewController {
                     let vc=storyboard.instantiateViewController(withIdentifier: "LoginVc")
                     self.present(vc,animated: true,completion: nil);
                 }else {
-                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
                 }

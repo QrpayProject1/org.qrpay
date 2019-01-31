@@ -2,12 +2,11 @@
 //  Credit_Card.swift
 //  FirebaseSmsOnay
 //
-//  Created by imac2 on 1/30/19.
+//  Created by imac1 on 30.01.2019.
 //  Copyright © 2019 imac2. All rights reserved.
 //
 
 import Foundation
-
 class CreditCard {
     
     var Cards_ID="1"
