@@ -65,7 +65,7 @@ class OrderdetailViewController: UIViewController,UITableViewDelegate ,UITableVi
         self.tableview.dataSource=self
         // Do any additional setup after loading the view.
     }
-   
+    
     func getData2(){
         let ordercode=UserDefaults.standard.string(forKey: "ordercode")
         let userıd=UserDefaults.standard.string(forKey: "userıd")

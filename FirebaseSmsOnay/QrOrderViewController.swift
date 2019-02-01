@@ -20,8 +20,12 @@ class QrOrderViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getShoppingBox()
+       
       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        getShoppingBox()
+        
     }
 
     override func didReceiveMemoryWarning() {

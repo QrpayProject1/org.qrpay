@@ -31,7 +31,7 @@ class SaveAddressViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
     @IBAction func SaveAddressbtn(_ sender: Any) {
         UserAddressControl=true
         getAddressInfo()
@@ -47,7 +47,7 @@ class SaveAddressViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
         self.present(alert,animated: true,completion: nil)
      }
-    func exitVC(){
+   func exitVC(){
       dismiss(animated: true, completion: nil)
     }
     /*

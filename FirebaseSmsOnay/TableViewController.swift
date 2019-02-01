@@ -24,8 +24,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         print("userıd \(user2.User_ID)")
-        getData();
+       
         
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+      getData();
         self.tableview.delegate=self
         self.tableview.dataSource=self
         

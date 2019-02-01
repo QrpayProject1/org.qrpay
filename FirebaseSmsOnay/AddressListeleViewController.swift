@@ -57,11 +57,13 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AddressRequest();
-
+        
         // Do any additional setup after loading the view.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        AddressRequest();
+
+    }
     func AddressRequest(){
           let userıd = UserDefaults.standard.string(forKey: "userıd")
         let url = "http://qrparam.net/User_Address_Info/Listele/?User_ID="+userıd!
