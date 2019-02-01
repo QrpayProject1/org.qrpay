@@ -12,36 +12,40 @@ import SwiftyJSON
 
 
 
-class TableViewController: UITableViewController {
+class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     
     var UserorderInfolist = [User_Order_Info]();
     var user2 = User_Credentials()
     @objc var methodname:Int=0
 
+    @IBAction func btn_cıkıs(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("userıd \(user2.User_ID)")
         getData();
         
-        self.tableView.tableFooterView=UIView();
+        self.tableview.delegate=self
+        self.tableview.dataSource=self
         
     }
+    @IBOutlet weak var tableview: UITableView!
     
     
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1;
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return UserorderInfolist.count;
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.section).")
         print("Cell cliked value is \(indexPath.row)")
         
@@ -56,8 +60,8 @@ class TableViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! TableViewCell
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
         print("listecount \(UserorderInfolist.count)")
         print("cell\(UserorderInfolist[indexPath.row].Order_Date)")
         cell.Ordercode.text=String(UserorderInfolist[indexPath.row].Order_Code);
@@ -114,7 +118,7 @@ class TableViewController: UITableViewController {
                         
                     }
                     
-                    self.tableView.reloadData();
+                    self.tableview.reloadData();
                 }
             case .failure(let error):
                 print(error)

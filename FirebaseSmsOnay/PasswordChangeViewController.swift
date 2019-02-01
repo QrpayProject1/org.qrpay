@@ -15,7 +15,10 @@ class PasswordChangeViewController: UIViewController {
     var password=""
     var userid=0
     @IBOutlet weak var label_error: UILabel!
+    
+    @IBOutlet weak var btn_change: UIButton!
     @IBAction func btn_change(_ sender: Any) {
+        btn_change.buttondesign()
         
         checkCurrentPasssword()
         
@@ -23,6 +26,16 @@ class PasswordChangeViewController: UIViewController {
     @IBOutlet weak var newpasswordagain: UITextField!
     @IBOutlet weak var newpassword: UITextField!
     @IBOutlet weak var currentpassword: UITextField!
+    
+    @IBAction func btn_Cıkıs(_ sender: Any) {
+        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVc()}))
+        self.present(alert,animated:true,completion: nil)
+    }
+    func exitVc(){
+        self.navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -23,28 +23,31 @@ class HomeViewController: UIViewController {
     var value:String?
     var degisken=true;
     @IBAction func QrOpen(_ sender: Any) {
+        btn_qrRead.buttondesign()
         
       self.performSegue(withIdentifier: "qrsegue", sender: self)
         
         
     }
     @IBAction func OpenSettings(_ sender: Any) {
-        
+        btn_settings.buttondesign()
         self.performSegue(withIdentifier: "settingsegue", sender: self)
     }
     
     @IBAction func btncıkıs(_ sender: Any) {
+       
         let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginVc") as! LoginViewController
         self.present(vc, animated: true, completion: nil)
     }
     @IBAction func btnSiparisler(_ sender: Any) {
-        
+         btn_orders.buttondesign()
         self.performSegue(withIdentifier: "Siparissegue", sender: self)
     }
     
     
     @IBAction func Address(_ sender: Any) {
+        btn_address.buttondesign()
         let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SaveAddressStoryboard") as! SaveAddressViewController
         self.present(vc, animated: true, completion: nil)

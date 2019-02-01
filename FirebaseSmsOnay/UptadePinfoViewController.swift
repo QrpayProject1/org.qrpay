@@ -18,11 +18,25 @@ class UptadePinfoViewController: UIViewController {
     @IBOutlet weak var label_email: UILabel!
     @IBOutlet weak var label_surname: UILabel!
     @IBOutlet weak var label_name: UILabel!
+    
+    @IBOutlet weak var btn_cgangepassword: UIButton!
+    var user = User_Credentials()
     @IBAction func btn_changepassword(_ sender: Any) {
+        btn_cgangepassword.buttondesign()
         
         self.performSegue(withIdentifier: "seguepassword", sender: self)
     }
-    var user = User_Credentials()
+    
+    @IBAction func btn_exit(_ sender: Any) {
+       let alert=UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVc()}))
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true,completion: nil)
+    }
+    func exitVc(){
+        //navigatıoncontroller olduğu için "dismiss" yerine aşağıdaki kod kullanılır
+       self.navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         
         super.viewDidLoad()

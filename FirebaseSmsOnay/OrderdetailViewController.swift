@@ -27,7 +27,6 @@ class OrderdetailViewController: UIViewController,UITableViewDelegate ,UITableVi
     
     
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UserorderInfoİceriklist.count;
     }

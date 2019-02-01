@@ -20,6 +20,7 @@ class SaveCreditCardController: UIViewController {
     @IBOutlet weak var textfield_date: UITextField!
     @IBOutlet weak var textfield_securityCode: UITextField!
     @IBOutlet weak var btn_saveCard: UIButton!
+    
     let creditCard=CreditCard()
     var userID=0
     var control=true
@@ -67,6 +68,7 @@ class SaveCreditCardController: UIViewController {
     }
     
     @IBAction func btn_saveCard(_ sender: Any) {
+        btn_saveCard.buttondesign()
         infoControl=true
         setupCreditCard()
         if infoControl{
@@ -93,6 +95,17 @@ class SaveCreditCardController: UIViewController {
         }
        
        
+    }
+    
+    @IBAction func Exit_btn(_ sender: Any) {
+        let alert=UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exit()}))
+        self.present(alert,animated: true,completion: nil)
+        
+    }
+    func exit(){
+        self.navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
        

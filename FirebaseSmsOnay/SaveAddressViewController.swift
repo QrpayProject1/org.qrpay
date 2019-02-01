@@ -21,19 +21,37 @@ class SaveAddressViewController: UIViewController {
     
     @IBOutlet weak var AddressFullAddress: UITextView!
     @IBOutlet weak var AddressPostCode: UITextField!
+    
+    @IBOutlet weak var btn_Addresscontrol: UILabel!
+     let user=User_Address()
+    var UserAddressControl=true
     override func viewDidLoad() {
         super.viewDidLoad()
-
+     btn_Addresscontrol.isHidden=true
         // Do any additional setup after loading the view.
     }
     
 
     @IBAction func SaveAddressbtn(_ sender: Any) {
-        let user=getAddressInfo();
-        postUserJson(user: user)
+        UserAddressControl=true
+        getAddressInfo()
+        if UserAddressControl{
+            postUserJson(user: user)
+        }
+    }
+    
+    
+     @IBAction func Btn_Exit(_ sender: Any) {
+        let alert=UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize  Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
+        self.present(alert,animated: true,completion: nil)
+     }
+    func exitVC(){
+      dismiss(animated: true, completion: nil)
     }
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,34 +59,79 @@ class SaveAddressViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func getAddressInfo() -> User_Address{
+    func getAddressInfo(){
         
-        let user=User_Address()
+       // let user=User_Address()
         
-        if let ATitle=Addresstitle.text { user.Address_Title=ATitle}
+        if (Addresstitle.text?.count)!>0{
+            let ATitle=Addresstitle.text
+            user.Address_Title=ATitle!}
+          else{
+            UserAddressControl=false;
+            btn_Addresscontrol.isHidden=false
+            btn_Addresscontrol.text="Adres Başlığını Boş Bıramazsınız"
+            return
+            
+        }
         
-        if let ACountry=AddressCountry.text {user.Address_Country=String(ACountry)}
-        
-        if let ACity=AddressCity.text {
+        if (AddressCountry.text?.count)!>0
+        {
+            let ACountry=AddressCountry.text
+            user.Address_Country=ACountry!}
+        else{
+            UserAddressControl=false;
+            btn_Addresscontrol.isHidden=false
+            btn_Addresscontrol.text="Ülke Adını boş Bırakmayınız"
+            return
           
-           user.Address_City=String(ACity)
-            }
-        
-        
-        if let ACounty=AddressCounty.text {
-            user.Address_County=ACounty
         }
         
-        if let AFullAddress=AddressFullAddress.text {
-            user.Address_Full_Address=AFullAddress
+        if  (AddressCity.text?.count)!>0 {
+            let ACity=AddressCity.text
+          
+            user.Address_City=ACity!
+        }else{
+            UserAddressControl=false;
+            btn_Addresscontrol.isHidden=false
+            btn_Addresscontrol.text="Şehir ismini Boş Bırakmayınız"
+            return
         }
         
-        if let APostCode=AddressPostCode.text {user.Address_Post_Code=Int(APostCode)!}
+        
+        if (AddressCounty.text?.count)!>0
+        {let ACounty=AddressCounty.text
+            user.Address_County=ACounty!
+        }else{
+            UserAddressControl=false;
+            btn_Addresscontrol.isHidden=false
+            btn_Addresscontrol.text="İlçe ismini Boş Bırakamazsınız"
+            return
+        }
+        
+        if AddressFullAddress.text.count>0
+        {let AFullAddress=AddressFullAddress.text
+            user.Address_Full_Address=AFullAddress!
+        }else{
+            UserAddressControl=false;
+            btn_Addresscontrol.isHidden=false
+            btn_Addresscontrol.text="Adresİ Boş Bırakamazsınız"
+            return
+        }
+        
+        if (AddressPostCode.text?.count)!>0
+        {let APostCode=AddressPostCode.text
+            user.Address_Post_Code=Int(APostCode!)!}
+        else{
+            UserAddressControl=false
+            btn_Addresscontrol.isHidden=false
+            btn_Addresscontrol.text="Posta kodunu Boş Bırakamazsınız"
+            return
+        }
         
         
       
         
-        return user;
+        return;
         
     }
     func saveVc(){

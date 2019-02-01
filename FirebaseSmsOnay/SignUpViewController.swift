@@ -24,10 +24,19 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var MailBilgi_lbl: UILabel!
     
+    @IBAction func Btn_exıt(_ sender: Any) {
+        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İatediğinize emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Çıkış", style: UIAlertAction.Style.default, handler: {action in self.exitVc()}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true,completion: nil)
+        
+    }
     
-      let user=User_Credentials()
+    @IBOutlet weak var btn_SignUp: UIButton!
+    let user=User_Credentials()
    var UserInfoControl=true
     @IBAction func btn_SignUp(_ sender: Any) {
+        btn_SignUp.buttondesign()
     UserInfoControl=true
       getUserInfo()
         
@@ -50,6 +59,9 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
            let vc = storyboard.instantiateViewController(withIdentifier: "HomePage")
             self.present(vc,animated: true)
         }
+    }
+    func exitVc(){
+        dismiss(animated: true, completion: nil)
     }
    /* func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         

@@ -16,7 +16,18 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
     
     @IBOutlet weak var SaveAddress: UIButton!
     
+    @IBAction func btn_Cıkıs(_ sender: Any) {
+        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitvc()}))
+        self.present(alert,animated: true,completion: nil)
+        
+    }
+    func exitvc(){
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBAction func SaveAddress(_ sender: Any) {
+        SaveAddress.buttondesign()
         let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SaveAddressStoryboard") as! SaveAddressViewController
         self.present(vc, animated: true, completion: nil)
@@ -37,8 +48,8 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
         print("sonadres..\(cell?.adress_lbl.text)")
         cell!.viewcell.layer.cornerRadius=5
         cell!.viewcell.layer.borderWidth=2
-        cell!.viewcell.layer.borderColor=UIColor(red: 144, green: 116, blue: 255, alpha: 1).cgColor
-        cell!.viewcell.layer.backgroundColor=UIColor(red: 144, green: 166, blue: 255, alpha: 0.5).cgColor
+        cell!.viewcell.layer.borderColor=UIColor.darkGray.cgColor
+        cell!.viewcell.layer.backgroundColor=UIColor.darkGray.cgColor
         
         return cell!
     }

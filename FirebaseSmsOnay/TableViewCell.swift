@@ -11,16 +11,12 @@ import UIKit
 class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var Ordercode: UILabel!
-    
     @IBOutlet weak var Orderdate: UILabel!
-    
-    
     @IBOutlet weak var OrderStatus: UILabel!
-    
     @IBOutlet weak var OrderWebSite: UILabel!
     
     
-    @IBOutlet weak var SiparişDetay: UIButton!
+  
     
     
     override func awakeFromNib() {
