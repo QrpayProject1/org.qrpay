@@ -19,11 +19,11 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
     @IBAction func btn_Cıkıs(_ sender: Any) {
         let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitvc()}))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
         self.present(alert,animated: true,completion: nil)
         
     }
-    func exitvc(){
+    func exitVC(){
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func SaveAddress(_ sender: Any) {

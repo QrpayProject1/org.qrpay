@@ -32,6 +32,9 @@ class ViewController: UIViewController {
         let action = UIAlertAction(title: "Evet", style: .default) {
             (UIAlertAction) in
             PhoneAuthProvider.provider().verifyPhoneNumber("+90"+self.phoneNum.text!, uiDelegate: nil) {(verificationID, error) in
+            
+               
+                
                 if error != nil {
                     print("error: \(String(describing: error?.localizedDescription))")
                  
@@ -41,13 +44,27 @@ class ViewController: UIViewController {
                     self.performSegue(withIdentifier: "code", sender: Any?.self)
                 }
             }
+              //UserDefaults.standard.set(self.phoneNum.text!, forKey: "telno")
+            //UserDefaults.standard.set(self.phoneNum.text!, forKey: "telno")
+            let telnumarası = self.phoneNum.text!
+            UserDefaults.standard.set(telnumarası, forKey: "telno")
+          
+            
+            let telll = UserDefaults.standard.object(forKey: "telno")
+            print("object  \(telll)")
+           // let tel = UserDefaults.standard.integer(forKey: "telno")
+          //  print("ınteger  \(tel)")
+          //  let tell = UserDefaults.standard.double(forKey: "telno")
+          //  print("double  \(tell)")
         }
         
         let cancel = UIAlertAction(title:"No", style: .cancel, handler: nil)
         alert.addAction(action)
         alert.addAction(cancel)
+        
         self.present(alert, animated: true, completion: nil)
      
     
     }
+   
 }

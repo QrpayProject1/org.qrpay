@@ -19,13 +19,22 @@ class OrderdetailViewController: UIViewController,UITableViewDelegate ,UITableVi
     // var labell:UILabel=UILabel()
 
     
+    @IBOutlet weak var btn_exit: UIButton!
     @IBOutlet weak var Lbl_adres: UILabel!
     @IBOutlet weak var tableview: UITableView!
     
     
-
+    @IBAction func btn_exit(_ sender: Any) {
+        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
+        self.present(alert,animated: true,completion: nil)
+    }
     
     
+    func exitVC(){
+        self.navigationController?.popViewController(animated: true)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UserorderInfoİceriklist.count;

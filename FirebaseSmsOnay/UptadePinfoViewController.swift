@@ -29,11 +29,11 @@ class UptadePinfoViewController: UIViewController {
     
     @IBAction func btn_exit(_ sender: Any) {
        let alert=UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVc()}))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
         alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true,completion: nil)
     }
-    func exitVc(){
+    func exitVC(){
         //navigatıoncontroller olduğu için "dismiss" yerine aşağıdaki kod kullanılır
        self.navigationController?.popViewController(animated: true)
     }

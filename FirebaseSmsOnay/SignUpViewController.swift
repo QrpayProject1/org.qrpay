@@ -25,9 +25,10 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var MailBilgi_lbl: UILabel!
     
     @IBAction func Btn_exıt(_ sender: Any) {
-        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İatediğinize emin misiniz?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Çıkış", style: UIAlertAction.Style.default, handler: {action in self.exitVc()}))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil))
+        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+      
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+          alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
         self.present(alert, animated: true,completion: nil)
         
     }
@@ -59,8 +60,17 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
            let vc = storyboard.instantiateViewController(withIdentifier: "HomePage")
             self.present(vc,animated: true)
         }
+        // let telno = UserDefaults.standard.object(forKey: "telno")
+       // print("telno...\(telno)")
+        let telno = UserDefaults.standard.object(forKey: "telno")
+    
+        TF_phonenumber.text = telno as! String
+        
+       // let phonenumber=TF_phonenumber.text
+       // user.User_Phone_Number=Int(phonenumber!)!
+       // print("telno   \(user.User_Phone_Number)")
     }
-    func exitVc(){
+    func exitVC(){
         dismiss(animated: true, completion: nil)
     }
    /* func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -175,8 +185,8 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
             MailBilgi_lbl.text="şifre boş bırakılamaz"
             return}
         
-        
-        if (TF_phonenumber.text?.count)!>0{
+      
+       if (TF_phonenumber.text?.count)!>0{
             let phonenumber=TF_phonenumber.text
             user.User_Phone_Number=Int(phonenumber!)!
            
@@ -186,6 +196,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
             MailBilgi_lbl.text="Telefon Numarası Boş Bırakılamaz"
             return
         }
+        
         if (TF_birdth.text?.count)!>0
         {let birdth=TF_birdth.text
             user.User_Birth_Date=birdth!}

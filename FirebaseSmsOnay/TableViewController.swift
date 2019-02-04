@@ -20,6 +20,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc var methodname:Int=0
 
     @IBAction func btn_cıkıs(_ sender: Any) {
+        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()
+        }))
+        self.present(alert,animated: true, completion: nil)
+    }
+    func exitVC(){
+        self.navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
