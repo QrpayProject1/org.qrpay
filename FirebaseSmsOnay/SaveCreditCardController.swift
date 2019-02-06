@@ -98,9 +98,9 @@ class SaveCreditCardController: UIViewController {
     }
     
     @IBAction func Exit_btn(_ sender: Any) {
-        let alert=UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
+        let alert=UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertActionStyle.default, handler: {action in self.exitVC()}))
         self.present(alert,animated: true,completion: nil)
         
     }
@@ -213,8 +213,8 @@ class SaveCreditCardController: UIViewController {
             case .success(let value):
                  print("Kayıt Başarılı")
                  print(correctURL)
-                 let alert = UIAlertController(title: "Başarılı", message: "Kredi kaydı işlemi başarı bir şekilde gerçekleşti", preferredStyle: UIAlertController.Style.alert)
-                 alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default,  handler: {action in self.dismissVc()}))
+                 let alert = UIAlertController(title: "Başarılı", message: "Kredi kaydı işlemi başarı bir şekilde gerçekleşti", preferredStyle: UIAlertControllerStyle.alert)
+                 alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default,  handler: {action in self.dismissVc()}))
                  
                  self.present(alert, animated: true, completion: nil)
                
