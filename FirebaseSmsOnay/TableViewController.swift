@@ -20,9 +20,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc var methodname:Int=0
 
     @IBAction func btn_cıkıs(_ sender: Any) {
-        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()
+        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style:.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertActionStyle.default, handler: {action in self.exitVC()
         }))
         self.present(alert,animated: true, completion: nil)
     }
@@ -76,11 +76,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
         print("listecount \(UserorderInfolist.count)")
         print("cell\(UserorderInfolist[indexPath.row].Order_Date)")
-        cell.Ordercode.text=String(UserorderInfolist[indexPath.row].Order_Code);
+       // cell.Ordercode.text=String(UserorderInfolist[indexPath.row].Order_Code);
         cell.Orderdate.text=UserorderInfolist[indexPath.row].Order_Date;
         cell.OrderStatus.text=String(UserorderInfolist[indexPath.row].Order_Status);
         cell.OrderWebSite.text=String(UserorderInfolist[indexPath.row].Order_Web_Site);
-        let ordercode=cell.Ordercode.text
+       let ordercode=String(UserorderInfolist[indexPath.row].Order_Code);
         UserDefaults.standard.set(ordercode, forKey: "ordercode")
         
       //  cell.SiparişDetay.tag=indexPath.row
@@ -111,7 +111,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         
                         UserorderInfo.Order_ID=json[index]["Order_ID"].intValue
                         UserorderInfo.Order_Code=json[index]["Order_Code"].intValue
-                        UserorderInfo.Order_Date=json[index]["Order_Date"].stringValue
+                        UserorderInfo.Order_Date=json[index]["Order_Datee"].stringValue
                         UserorderInfo.Order_Product_Name=json[index]["Order_Product_Name"].stringValue
                         UserorderInfo.Order_Status=json[index]["Order_Status"].intValue
                         UserorderInfo.Order_Unit=json[index]["Order_Unit"].stringValue

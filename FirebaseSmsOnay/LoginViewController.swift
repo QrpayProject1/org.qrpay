@@ -135,7 +135,7 @@ user.User_Password="aaaa"
                 }
                 
             case .failure(let error):
-                let alert=UIAlertController(title: "Bağlantı Hatası", message: "Lütfen bilgilerinizi kontrol ederek tekrar giriş yapmayı deneyin", preferredStyle:UIAlertController.Style.alert)
+                let alert=UIAlertController(title: "Bağlantı Hatası", message: "Lütfen bilgilerinizi kontrol ederek tekrar giriş yapmayı deneyin", preferredStyle:UIAlertControllerStyle.alert)
                 let action=UIAlertAction(title: "Tamam", style: .default, handler: nil)
                 alert.addAction(action)
                 self.present(alert,animated:true,completion: nil )

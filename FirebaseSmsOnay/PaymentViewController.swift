@@ -62,7 +62,7 @@ class PaymentViewController: UIViewController {
                     }
         }
         else {
-            let alert=UIAlertController(title: "Uyarı", message: "Kayıtlı kredi kartı bulunmamaktadır kredi kartı kaydetme sayfasına yönlendirilmek ister misiniz ?", preferredStyle: UIAlertController.Style.alert)
+            let alert=UIAlertController(title: "Uyarı", message: "Kayıtlı kredi kartı bulunmamaktadır kredi kartı kaydetme sayfasına yönlendirilmek ister misiniz ?", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Evet", style: .default, handler: { action in
                 self.goToRegCardVc()
             }))
