@@ -20,11 +20,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc var methodname:Int=0
 
     @IBAction func btn_cıkıs(_ sender: Any) {
-        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertControllerStyle.alert)
+        /*let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Hayır", style:.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertActionStyle.default, handler: {action in self.exitVC()
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()
         }))
-        self.present(alert,animated: true, completion: nil)
+        self.present(alert,animated: true, completion: nil)*/
+        exitVC()
     }
     func exitVC(){
         self.navigationController?.popViewController(animated: true)
@@ -92,7 +93,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     //String(user2.User_ID)
-    
+    func homebackVc(){
+        let storyboard=UIStoryboard(name: "Main", bundle: nil)
+        let vc=storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomeViewController
+        self.present(vc,animated: true,completion: nil)
+    }
   
     func getData(){
         print("siparişuserıd..\(user2.User_ID)")
@@ -131,6 +136,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     }
                     
                     self.tableview.reloadData();
+                }else{
+                    let alert=UIAlertController(title: "Sipariş Bilgi", message: "Hiç Siparişiniz Bulunmamaktadır..!", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: {action in self.homebackVc()}))
+                    self.present(alert,animated: true,completion: nil)
                 }
             case .failure(let error):
                 print(error)

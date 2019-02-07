@@ -24,13 +24,11 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var MailBilgi_lbl: UILabel!
     
-    @IBAction func Btn_exıt(_ sender: Any) {
-        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize emin misiniz?", preferredStyle: UIAlertControllerStyle.alert)
-      
-        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertActionStyle.default, handler: nil))
-          alert.addAction(UIAlertAction(title: "Evet", style: UIAlertActionStyle.default, handler: {action in self.exitVC()}))
-        self.present(alert, animated: true,completion: nil)
-        
+   
+    @IBAction func btn_nextlogin(_ sender: Any) {
+        let storyboard=UIStoryboard(name: "Main", bundle: nil)
+     let vc=storyboard.instantiateViewController(withIdentifier: "LoginVc") as! LoginViewController
+        self.present(vc,animated: true,completion: nil)
     }
     
     @IBOutlet weak var btn_SignUp: UIButton!
@@ -49,6 +47,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          MailBilgi_lbl.isHidden=true
@@ -250,8 +249,8 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
                     let vc=storyboard.instantiateViewController(withIdentifier: "LoginVc")
                     self.present(vc,animated: true,completion: nil);
                 }else {
-                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+                    let alert = UIAlertController(title: "Eksik Bilgi!", message: "Bilgilerinizi kontrol ediniz..!", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
                 }

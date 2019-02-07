@@ -17,10 +17,11 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
     @IBOutlet weak var SaveAddress: UIButton!
     
     @IBAction func btn_Cıkıs(_ sender: Any) {
-        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertActionStyle.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertActionStyle.default, handler: {action in self.exitVC()}))
-        self.present(alert,animated: true,completion: nil)
+       /* let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
+        self.present(alert,animated: true,completion: nil)*/
+        exitVC()
         
     }
     func exitVC(){
@@ -101,9 +102,9 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
                 self.tableview.reloadData()
                 
                 }else{
-                    let alert = UIAlertController(title: "", message: "Kayıtlı Adresiniz bulunmamaktadır.Adres Kaydetmek istermisiniz?", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,  handler: {action in self.CancelAddress()}))
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default,  handler: {action in self.saveAdres()}))
+                    let alert = UIAlertController(title: "", message: "Kayıtlı Adresiniz bulunmamaktadır.Adres Kaydetmek istermisiniz?", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default,  handler: {action in self.CancelAddress()}))
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default,  handler: {action in self.saveAdres()}))
                    
                     self.present(alert, animated: true, completion: nil)
                 }

@@ -25,7 +25,18 @@ class PaymentViewController: UIViewController {
      var scroolview=UIScrollView()
     
     
-    
+    @IBAction func btn_onayla(_ sender: Any) {
+        let alert=UIAlertController(title: "Bilgi", message: "siparişiniz onaylanmıştır", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: {action in self.homecv()}))
+        self.present(alert,animated: true,completion: nil)
+    }
+    func homecv(){
+       
+        
+        let storyboard=UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomeViewController
+        self.present(vc,animated:true,completion:nil )
+    }
     @IBAction func btn_chooseAddress(_ sender: Any) {
         
           let y = btn_addressChoose.frame.origin.y+btn_addressChoose.frame.size.height
@@ -62,12 +73,13 @@ class PaymentViewController: UIViewController {
                     }
         }
         else {
-            let alert=UIAlertController(title: "Uyarı", message: "Kayıtlı kredi kartı bulunmamaktadır kredi kartı kaydetme sayfasına yönlendirilmek ister misiniz ?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let alert=UIAlertController(title: "Uyarı", message: "Kayıtlı kredi kartı bulunmamaktadır kredi kartı kaydetme sayfasına yönlendirilmek ister misiniz ?", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Evet", style: .default, handler: { action in
                 self.goToRegCardVc()
             }))
             alert.addAction(UIAlertAction(title: "Hayır", style: .cancel, handler: nil))
-        }
+            }
     }
     func goToRegCardVc(){
         let storyboard=UIStoryboard(name: "Main", bundle: nil)

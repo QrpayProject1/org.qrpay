@@ -28,10 +28,11 @@ class PasswordChangeViewController: UIViewController {
     @IBOutlet weak var currentpassword: UITextField!
     
     @IBAction func btn_Cıkıs(_ sender: Any) {
-        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertActionStyle.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertActionStyle.default, handler: {action in self.exitVC()}))
-        self.present(alert,animated:true,completion: nil)
+       /* let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
+        self.present(alert,animated:true,completion: nil)*/
+        exitVC()
     }
     func exitVC(){
         self.navigationController?.popViewController(animated: true)

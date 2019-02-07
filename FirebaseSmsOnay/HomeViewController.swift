@@ -22,6 +22,14 @@ class HomeViewController: UIViewController {
     var user=User_Credentials()
     var value:String?
     var degisken=true;
+    
+    @IBOutlet weak var btn_help: UIButton!
+    @IBAction func btn_help(_ sender: Any) {
+        let storyboard:UIStoryboard=UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "HelpStoryboard") as! HelpViewController
+        self.present(vc, animated: true, completion: nil)
+        
+    }
     @IBAction func QrOpen(_ sender: Any) {
         btn_qrRead.buttondesign()
         
@@ -46,13 +54,7 @@ class HomeViewController: UIViewController {
     }
     
     
-    @IBAction func Address(_ sender: Any) {
-        btn_address.buttondesign()
-        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SaveAddressStoryboard") as! SaveAddressViewController
-        self.present(vc, animated: true, completion: nil)
-        
-    }
+    
     override func viewDidLoad() {
       
     super.viewDidLoad()

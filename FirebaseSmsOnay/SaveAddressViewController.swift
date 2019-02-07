@@ -42,10 +42,11 @@ class SaveAddressViewController: UIViewController {
     
     
      @IBAction func Btn_Exit(_ sender: Any) {
-        let alert=UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize  Emin misiniz?", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertActionStyle.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertActionStyle.default, handler: {action in self.exitVC()}))
-        self.present(alert,animated: true,completion: nil)
+       /* let alert=UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize  Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
+        self.present(alert,animated: true,completion: nil)*/
+        exitVC()
      }
    func exitVC(){
       dismiss(animated: true, completion: nil)
@@ -166,8 +167,8 @@ class SaveAddressViewController: UIViewController {
                 {
                    
 
-                    let alert = UIAlertController(title: "Başarılı", message: "Adresiniz Kaydedilmiştir", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default,  handler: {action in self.saveVc()}))
+                    let alert = UIAlertController(title: "Başarılı", message: "Adresiniz Kaydedilmiştir", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default,  handler: {action in self.saveVc()}))
 
                     self.present(alert, animated: true, completion: nil)
                     

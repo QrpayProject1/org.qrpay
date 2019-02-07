@@ -22,13 +22,14 @@ class OrderdetailViewController: UIViewController,UITableViewDelegate ,UITableVi
     @IBOutlet weak var btn_exit: UIButton!
     @IBOutlet weak var Lbl_adres: UILabel!
     @IBOutlet weak var tableview: UITableView!
-    
+    var adresbilgi=""
     
     @IBAction func btn_exit(_ sender: Any) {
-        let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertActionStyle.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertActionStyle.default, handler: {action in self.exitVC()}))
-        self.present(alert,animated: true,completion: nil)
+       /* let alert = UIAlertController(title: "Çıkış", message: "Çıkış Yapmak İstediğinize Emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
+        self.present(alert,animated: true,completion: nil)*/
+        exitVC()
     }
     
     
@@ -36,6 +37,11 @@ class OrderdetailViewController: UIViewController,UITableViewDelegate ,UITableVi
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func address_viewbtn(_ sender: Any) {
+        let alert=UIAlertController(title: "Sipariş Adresi", message: adresbilgi, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UserorderInfoİceriklist.count;
     }
@@ -60,8 +66,8 @@ class OrderdetailViewController: UIViewController,UITableViewDelegate ,UITableVi
         cell.viewcell.layer.cornerRadius=5
         cell.viewcell.layer.borderWidth=2
         cell.viewcell.layer.borderColor=UIColor.darkGray.cgColor
-        cell.viewcell.layer.backgroundColor=UIColor.gray.withAlphaComponent(0.5).cgColor
-        
+        //cell.viewcell.layer.backgroundColor=UIColor.gray.withAlphaComponent(0.5).cgColor
+        cell.viewcell.layer.backgroundColor=UIColor.white.withAlphaComponent(0.5).cgColor
         
         
         return cell
@@ -130,12 +136,14 @@ class OrderdetailViewController: UIViewController,UITableViewDelegate ,UITableVi
                     
                     let string1=self.UserOrderInfoAddresslist[0].Address_Title
                     let string2=self.UserOrderInfoAddresslist[0].Address_Full_Address
-                    let string3=self.UserOrderInfoAddresslist[0].Address_County+self.UserOrderInfoAddresslist[0].Address_City+self.UserOrderInfoAddresslist[0].Address_Country
+                    let string3=self.UserOrderInfoAddresslist[0].Address_County+" "+self.UserOrderInfoAddresslist[0].Address_City+" "+self.UserOrderInfoAddresslist[0].Address_Country
                     let string4=self.UserOrderInfoAddresslist[0].Address_Post_Code
                     print("string..\(string4)")
-                    self.Lbl_adres.text="Adres Başlığı:"+string1+"Adress:"+string2+string3+String(string4)
-                    print("label...\(self.Lbl_adres.text)")
+                    //self.Lbl_adres.text="Adress:"+string1+"\n"+string2+" "+string3+"\n Posta kodu:"+String(string4)
+                   // print("label...\(self.Lbl_adres.text)")
                     //string1+string2+string3+String(string4)
+                    self.adresbilgi="Adress:"+string1+"\n"+string2+" "+string3+"\n Posta kodu:"+String(string4)
+                    
                     
                     self.tableview.reloadData();
                     print(self.UserorderInfoİceriklist[0].Order_Product_Name)

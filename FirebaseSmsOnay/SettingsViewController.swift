@@ -47,10 +47,11 @@ class SettingsViewController: UIViewController {
     
     @IBAction func btn_exit(_ sender: Any) {
         
-        let alert=UIAlertController(title: "Çıkış", message: "Çıkış yapmak istediğinize emin misiniz?", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertActionStyle.default, handler: {action in self.exitVC()}))
-        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true,completion: nil)
+       /* let alert=UIAlertController(title: "Çıkış", message: "Çıkış yapmak istediğinize emin misiniz?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
+        alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true,completion: nil)*/
+        exitVC()
     }
     func exitVC(){
         self.navigationController?.popViewController(animated: true)
