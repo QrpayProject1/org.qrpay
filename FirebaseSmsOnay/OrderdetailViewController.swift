@@ -34,7 +34,11 @@ class OrderdetailViewController: UIViewController,UITableViewDelegate ,UITableVi
     
     
     func exitVC(){
-        self.navigationController?.popViewController(animated: true)
+        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TableviewCV") as! TableViewController
+        self.present(vc, animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        //self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func address_viewbtn(_ sender: Any) {

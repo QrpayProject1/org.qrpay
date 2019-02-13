@@ -22,7 +22,7 @@ class UptadePinfoViewController: UIViewController {
     @IBOutlet weak var btn_cgangepassword: UIButton!
     var user = User_Credentials()
     @IBAction func btn_changepassword(_ sender: Any) {
-        btn_cgangepassword.buttondesign()
+      
         
         self.performSegue(withIdentifier: "seguepassword", sender: self)
     }
@@ -35,12 +35,17 @@ class UptadePinfoViewController: UIViewController {
         exitVC()
     }
     func exitVC(){
+        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsViewController
+        self.present(vc, animated: true, completion: nil)
         //navigatıoncontroller olduğu için "dismiss" yerine aşağıdaki kod kullanılır
-       self.navigationController?.popViewController(animated: true)
+        //dismiss(animated: true, completion: nil)
+      // self.navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         
         super.viewDidLoad()
+          btn_cgangepassword.buttondesign()
         print("user\(user.User_Name)")
         fillLabel()
         

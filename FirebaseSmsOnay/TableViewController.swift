@@ -28,7 +28,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         exitVC()
     }
     func exitVC(){
-        self.navigationController?.popViewController(animated: true)
+        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomeViewController
+        self.present(vc, animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        //self.navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +71,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let controller = storyboard.instantiateViewController(withIdentifier: "SiparisDetay") as! OrderdetailViewController
         
-
-            self.navigationController?.pushViewController(controller, animated: true)
+            self.present(controller,animated: true,completion: nil)
+          //  self.navigationController?.pushViewController(controller, animated: true)
             
         
     }

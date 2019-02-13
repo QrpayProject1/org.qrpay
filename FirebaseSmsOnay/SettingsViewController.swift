@@ -17,28 +17,23 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var SavenewAddress: UIButton!
     @IBAction func btn_updateAddress(_ sender: Any) {
-        btn_uptadeAddress.buttondesign()
-        
         self.performSegue(withIdentifier: "Addresslistele", sender: self)
         
     }
     
     @IBAction func btn_register_CreditCard(_ sender: Any) {
-        btn_register_CreditCard.buttondesign()
-        
+        UserDefaults.standard.set(false, forKey: "backpayment")
         self.performSegue(withIdentifier: "segueRegCard", sender: self)
     
     }
     @IBAction func btn_uptadeinfo(_ sender: Any) {
-        btn_uptadeinfo.buttondesign()
-        
        self.performSegue(withIdentifier: "UpdatePinfo", sender: self)
         
     }
     
     
     @IBAction func SavenewAddress(_ sender: Any) {
-        SavenewAddress.buttondesign()
+       
         let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SaveAddressStoryboard") as! SaveAddressViewController
         self.present(vc, animated: true, completion: nil)
@@ -54,10 +49,19 @@ class SettingsViewController: UIViewController {
         exitVC()
     }
     func exitVC(){
-        self.navigationController?.popViewController(animated: true)
+        
+        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "HomePage") as! HomeViewController
+        self.present(vc, animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+       //self.navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        btn_uptadeinfo.buttondesign()
+        btn_uptadeAddress.buttondesign()
+        btn_register_CreditCard.buttondesign()
+        SavenewAddress.buttondesign()
 
       
     }

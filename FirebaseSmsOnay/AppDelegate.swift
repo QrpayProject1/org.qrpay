@@ -25,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if checkSMS(){
             print("Auth")
             if(checkSignUp()){
-              
-               
                     let vc  = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginVc")
                     
                     let navVC = UINavigationController(rootViewController: vc)
@@ -34,6 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     share?.window?.rootViewController = navVC
                     share?.window?.makeKeyAndVisible()
                 
+            }
+            else if(savelogin()){
+                let vc  = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginVc")
+                
+                let navVC = UINavigationController(rootViewController: vc)
+                let share = UIApplication.shared.delegate as? AppDelegate
+                share?.window?.rootViewController = navVC
+                share?.window?.makeKeyAndVisible()
             }
             else{
                 let vc  = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SignUp")
@@ -78,6 +84,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
         else {
+            return false
+        }
+    }
+    func savelogin() -> Bool{
+        if UserDefaults.standard.bool(forKey: "kayıtlıhesap") == true{
+            return true
+        }
+        else{
             return false
         }
     }

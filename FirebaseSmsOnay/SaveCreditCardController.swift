@@ -102,17 +102,20 @@ class SaveCreditCardController: UIViewController {
         alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default, handler: {action in self.exitVC()}))
         self.present(alert,animated: true,completion: nil)*/
-        exitVC()
-        
+       exitVC()
     }
     func exitVC(){
-        self.navigationController?.popViewController(animated: true)
+        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsViewController
+        self.present(vc, animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        //self.navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
        
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+       // self.navigationController?.setNavigationBarHidden(true, animated: false)
         
     }
 
@@ -191,15 +194,21 @@ class SaveCreditCardController: UIViewController {
       
     }
     func dismissVc(){
-        self.navigationController?.popViewController(animated: true)
-        
+        //dismiss(animated: true, completion: nil)
+        if UserDefaults.standard.bool(forKey: "backpayment"){
+     let storyboard=UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PaymentStoryboard") as! PaymentViewController
+            self.present(vc,animated: true,completion: nil)
+        }else{
+            exitVC()
+        }
     }
     func SaveCardRequest(){
     
-        
+         let userıd = UserDefaults.standard.string(forKey: "userıd")
         let url="http://qrparam.net/User_Credit_Cards_Info/Insert/?Card_Number="+creditCard.Card_Number+"&Card_Name="+creditCard.Card_Name
         let url2="&Card_Exprition_Month="+creditCard.Card_Exprition_Month+"&Card_Exprition_Year="+creditCard.Card_Exprition_Year+"&Card_Type="+creditCard.Card_Type
-        let url3="&Card_CVV="+creditCard.Card_CVV+"&User_ID="+String(userID)
+        let url3="&Card_CVV="+creditCard.Card_CVV+"&User_ID="+userıd!
         
         let tempURL=url+url2+url3
         
@@ -212,14 +221,18 @@ class SaveCreditCardController: UIViewController {
             switch(response.result){
                 
             case .success(let value):
+                let Cartjson=JSON(value)
+                if Cartjson.count>0{
                  print("Kayıt Başarılı")
                  print(correctURL)
-                 let alert = UIAlertController(title: "Başarılı", message: "Kredi kaydı işlemi başarı bir şekilde gerçekleşti", preferredStyle: UIAlertController.Style.alert)
+                 let alert = UIAlertController(title: "Başarılı", message: "İşleminiz başarılı bir şekilde gerçekleşmiştir", preferredStyle: UIAlertController.Style.alert)
                  alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default,  handler: {action in self.dismissVc()}))
                  
                  self.present(alert, animated: true, completion: nil)
-               
-                let value=JSON(value)
+                }else{
+                    print("kaydedilmedi")
+                }
+             
             case .failure(let error):
                  print(error)
             }

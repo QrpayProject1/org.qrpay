@@ -25,7 +25,11 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
         
     }
     func exitVC(){
-        self.navigationController?.popViewController(animated: true)
+        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsViewController
+        self.present(vc, animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        //self.navigationController?.popViewController(animated: true)
     }
     @IBAction func SaveAddress(_ sender: Any) {
         SaveAddress.buttondesign()
@@ -42,15 +46,15 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AddressListeleTableViewCell
-        let string=addressList[indexPath.row].Address_Title+"\n"+addressList[indexPath.row].Address_Country
-        let string1=addressList[indexPath.row].Address_County+"\n"+addressList[indexPath.row].Address_City
-        let string2=addressList[indexPath.row].Address_Full_Address+"\n"+String(addressList[indexPath.row].Address_Post_Code)
-        cell?.adress_lbl.text = string+string1+string2
+        let adres=addressList[indexPath.row].Address_Title
+        let adres1=addressList[indexPath.row].Address_City+" "+addressList[indexPath.row].Address_Country+" "+String(addressList[indexPath.row].Address_Post_Code)
+        let adres2=addressList[indexPath.row].Address_Full_Address+" "+addressList[indexPath.row].Address_County+"/"
+        cell?.adress_lbl.text = adres+adres2+adres1
         print("sonadres..\(cell?.adress_lbl.text)")
         cell!.viewcell.layer.cornerRadius=5
         cell!.viewcell.layer.borderWidth=2
         cell!.viewcell.layer.borderColor=UIColor.darkGray.cgColor
-        cell!.viewcell.layer.backgroundColor=UIColor.darkGray.cgColor
+        cell!.viewcell.layer.backgroundColor=UIColor.white.cgColor
         
         return cell!
     }
@@ -58,12 +62,14 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
+
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        AddressRequest();
-
+         super.viewWillAppear(animated)
+        addressList.removeAll()
+         AddressRequest();
     }
     func AddressRequest(){
           let userıd = UserDefaults.standard.string(forKey: "userıd")
@@ -103,8 +109,8 @@ class AddressListeleViewController: UIViewController,UITableViewDataSource,UITab
                 
                 }else{
                     let alert = UIAlertController(title: "", message: "Kayıtlı Adresiniz bulunmamaktadır.Adres Kaydetmek istermisiniz?", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default,  handler: {action in self.CancelAddress()}))
-                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default,  handler: {action in self.saveAdres()}))
+                    alert.addAction(UIAlertAction(title: "Hayır", style: UIAlertAction.Style.default,  handler: {action in self.CancelAddress()}))
+                    alert.addAction(UIAlertAction(title: "Evet", style: UIAlertAction.Style.default,  handler: {action in self.saveAdres()}))
                    
                     self.present(alert, animated: true, completion: nil)
                 }

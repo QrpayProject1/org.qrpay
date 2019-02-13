@@ -25,6 +25,7 @@ class ViewController: UIViewController {
             
          
         }*/
+       //  self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     @IBAction func sendCode(_ sender: Any) {

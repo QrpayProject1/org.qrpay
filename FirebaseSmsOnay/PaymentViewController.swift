@@ -26,7 +26,7 @@ class PaymentViewController: UIViewController {
     
     
     @IBAction func btn_onayla(_ sender: Any) {
-        let alert=UIAlertController(title: "Bilgi", message: "siparişiniz onaylanmıştır", preferredStyle: UIAlertController.Style.alert)
+        let alert=UIAlertController(title: "Bilgi", message: "İşleminiz Şuan Gerçekleştirilemiyor..!", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: {action in self.homecv()}))
         self.present(alert,animated: true,completion: nil)
     }
@@ -38,11 +38,11 @@ class PaymentViewController: UIViewController {
         self.present(vc,animated:true,completion:nil )
     }
     @IBAction func btn_chooseAddress(_ sender: Any) {
+      
         
           let y = btn_addressChoose.frame.origin.y+btn_addressChoose.frame.size.height
        
         if tapAddressChoose{
-            
             showScroolAddress(x:10, y: Int(y), width: Int(view.frame.width-20), list: addressList)
             tapAddressChoose=false
             tapCardChoose=false
@@ -52,15 +52,15 @@ class PaymentViewController: UIViewController {
             scroolview.isHidden=true
             tapAddressChoose=true
             tapCardChoose=true
-        }
+            }
     
     }
     
     @IBAction func btn_chooseCard(_ sender: Any) {
+      
         let y = self.btn_cardchoose.frame.origin.y+self.btn_cardchoose.frame.size.height
         
-        if cardList.count>0
-        {
+       
             if tapCardChoose{
                self.showScroolCreditCard(x:10, y: Int(y), width: Int(self.view.frame.width-20), list: self.cardList)
             tapCardChoose=false
@@ -72,27 +72,29 @@ class PaymentViewController: UIViewController {
             tapAddressChoose=true
                     }
         }
-        else {
-            
-            let alert=UIAlertController(title: "Uyarı", message: "Kayıtlı kredi kartı bulunmamaktadır kredi kartı kaydetme sayfasına yönlendirilmek ister misiniz ?", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Evet", style: .default, handler: { action in
-                self.goToRegCardVc()
-            }))
-            alert.addAction(UIAlertAction(title: "Hayır", style: .cancel, handler: nil))
-            }
-    }
+
+    
     func goToRegCardVc(){
+       
         let storyboard=UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "RegCreditCard") as! SaveCreditCardController
         self.present(vc,animated:true,completion:nil )
     }
+    func saveAdres(){
+        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SaveAddressStoryboard") as! SaveAddressViewController
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        CreditCardRequest()
-        AddressRequest()
+        UserDefaults.standard.set(true, forKey: "backpayment")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         AddressRequest()
         CreditCardRequest()
     }
@@ -193,7 +195,7 @@ class PaymentViewController: UIViewController {
             case .success(let value):
                 let json=JSON(value)
                 print("CardJson\(json)")
-                
+                if json["card"].count>0{
                 for i in 0..<json["card"].count{
                     var creditCard=CreditCard()
                     creditCard.Card_CVV=json["card"][i]["Card_CVV"].stringValue
@@ -206,6 +208,10 @@ class PaymentViewController: UIViewController {
                     creditCard.Card_Type=json["card"][i]["Card_Type"].stringValue
                     print("cardname--\(json["card"][i]["Card_Name"].stringValue)")
                     self.cardList.append(creditCard)
+                    }}else{
+                    let alert=UIAlertController(title: "Kart Bilgi ", message: "Kayıt Kartınız Bulunmamaktadır.Kart Kaydetme Sayfasına Yönlendiriliyorsunuz", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: {action in self.goToRegCardVc()}))
+                    self.present(alert,animated: true, completion: nil)
                 }
                
                 
@@ -218,7 +224,6 @@ class PaymentViewController: UIViewController {
         
     }
 
-    
     
     
     func AddressRequest(){
@@ -238,6 +243,7 @@ class PaymentViewController: UIViewController {
                 let addressjson=JSON(value)
                 print(addressjson)
                 print(addressjson.count)
+                if addressjson.count>0{
                 for i in 0...addressjson.count-1{
                     print(i)
                     let address=User_Address()
@@ -252,8 +258,11 @@ class PaymentViewController: UIViewController {
                     address.User_ID = addressjson[i]["User_ID"].stringValue
                     self.addressList.append(address)
                     
+                    }}else{
+                   let alert=UIAlertController(title: "Adres Bilgi ", message: "Kayıt Adresiniz Bulunmamaktadır.Adres Kaydetme Sayfasına Yönlendiriliyorsunuz", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: {action in self.saveAdres()}))
+                    self.present(alert,animated: true, completion: nil)
                 }
-                
                // self.scroolview.reloadData();
                 //self.scroolview.reloadInputViews()
               //  self.btn_addressChoose.reloadInputViews()

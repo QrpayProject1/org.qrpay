@@ -27,11 +27,13 @@ class SaveAddressViewController: UIViewController {
     var UserAddressControl=true
     override func viewDidLoad() {
         super.viewDidLoad()
+        SaveAddressbtn.buttondesign()
      btn_Addresscontrol.isHidden=true
         // Do any additional setup after loading the view.
     }
     
     
+    @IBOutlet weak var SaveAddressbtn: UIButton!
     @IBAction func SaveAddressbtn(_ sender: Any) {
         UserAddressControl=true
         getAddressInfo()
@@ -49,7 +51,10 @@ class SaveAddressViewController: UIViewController {
         exitVC()
      }
    func exitVC(){
-      dismiss(animated: true, completion: nil)
+    let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsViewController
+    self.present(vc, animated: true, completion: nil)
+      //dismiss(animated: true, completion: nil)
     }
     /*
      // MARK: - Navigation
@@ -115,7 +120,7 @@ class SaveAddressViewController: UIViewController {
         }else{
             UserAddressControl=false;
             btn_Addresscontrol.isHidden=false
-            btn_Addresscontrol.text="Adresİ Boş Bırakamazsınız"
+            btn_Addresscontrol.text="Adresi Boş Bırakamazsınız"
             return
         }
         
@@ -136,10 +141,14 @@ class SaveAddressViewController: UIViewController {
         
     }
     func saveVc(){
-       /* let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "Addreslistele") as! AddressListeleViewController
-        self.present(vc, animated: true, completion: nil)*/
-         dismiss(animated: true, completion: nil)
+        if  UserDefaults.standard.bool(forKey: "backpayment"){
+            let storyboard=UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PaymentStoryboard") as! PaymentViewController
+            self.present(vc,animated: true,completion: nil)
+        }else{
+            exitVC()
+        }
+        // dismiss(animated: true, completion: nil)
     }
     
     func postUserJson(user:User_Address){
@@ -149,7 +158,7 @@ class SaveAddressViewController: UIViewController {
         let url="http://qrparam.net/User_Address_Info/Insert/?Address_Title="+user.Address_Title+"&Address_Country="+user.Address_Country
         let url2="&Address_City="+user.Address_City+"&Address_County="+user.Address_County
         let url3="&Address_Post_Code="+String(user.Address_Post_Code)+"&Address_Full_Address="+user.Address_Full_Address
-        let url4="&Address_Invoice_Type=4&User_ID=30268"
+        let url4="&Address_Invoice_Type=4&User_ID="+userıd!
         
         let totalurl=url+url2+url3+url4
         

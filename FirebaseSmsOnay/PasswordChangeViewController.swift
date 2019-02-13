@@ -35,12 +35,16 @@ class PasswordChangeViewController: UIViewController {
         exitVC()
     }
     func exitVC(){
-        self.navigationController?.popViewController(animated: true)
+        let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "UptadePinfoVC") as! UptadePinfoViewController
+        self.present(vc, animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        //self.navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        btn_change.buttondesign()
         
     }
 

@@ -25,7 +25,9 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var MailBilgi_lbl: UILabel!
     
    
+    @IBOutlet weak var btn_nextlogin: UIButton!
     @IBAction func btn_nextlogin(_ sender: Any) {
+        UserDefaults.standard.set(true, forKey: "kayıtlıhesap")
         let storyboard=UIStoryboard(name: "Main", bundle: nil)
      let vc=storyboard.instantiateViewController(withIdentifier: "LoginVc") as! LoginViewController
         self.present(vc,animated: true,completion: nil)
@@ -35,7 +37,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     let user=User_Credentials()
    var UserInfoControl=true
     @IBAction func btn_SignUp(_ sender: Any) {
-        btn_SignUp.buttondesign()
+       
     UserInfoControl=true
       getUserInfo()
         
@@ -50,8 +52,15 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // if UserDefaults.standard.bool(forKey: "kayıtlıhesap"){
+            let storyboard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "LoginVc") as! LoginViewController
+            self.present(vc, animated: true, completion: nil)
+      //  }else{
          MailBilgi_lbl.isHidden=true
-        
+         btn_SignUp.buttondesign()
+          btn_nextlogin.buttondesign()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
       
         if(UserDefaults.standard.bool(forKey: "isSignUp")){
 
@@ -67,7 +76,9 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         
        // let phonenumber=TF_phonenumber.text
        // user.User_Phone_Number=Int(phonenumber!)!
-       // print("telno   \(user.User_Phone_Number)")
+            // print("telno   \(user.User_Phone_Number)")
+            
+       // }
     }
     func exitVC(){
         dismiss(animated: true, completion: nil)
